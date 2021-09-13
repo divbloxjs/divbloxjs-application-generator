@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "An application generator for divbloxjs that adds the relevant configuration files and api endpoints",
   "main": "init-dx.js",
+  "preferGlobal": true,
+  "bin": {
+    "divbloxjs": "init-dx.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
