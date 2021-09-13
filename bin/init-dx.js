@@ -21,22 +21,22 @@ async function createDefaults() {
     }
     if (!fs.existsSync(dataModelFileName)) {
         console.log("Creating Divblox data model...");
-        const dxDataModelDefaultStr = await fsAsync.readFile('templates/data-model.json');
+        const dxDataModelDefaultStr = await fsAsync.readFile('../templates/data-model.json');
         await fsAsync.writeFile(dataModelFileName, dxDataModelDefaultStr);
     }
     if (!fs.existsSync(dxConfigFileName)) {
         console.log("Creating Divblox default config file...");
-        const dxConfigDefaultStr = await fsAsync.readFile('templates/dxconfig.json');
+        const dxConfigDefaultStr = await fsAsync.readFile('../templates/dxconfig.json');
         await fsAsync.writeFile(dxConfigFileName, dxConfigDefaultStr);
     }
     if (!fs.existsSync(dxInitFileName)) {
         console.log("Creating Divblox custom init file...");
-        const dxInitStr = await fsAsync.readFile('templates/dx-init.js');
+        const dxInitStr = await fsAsync.readFile('../templates/dx-init.js');
         await fsAsync.writeFile(dxInitFileName, dxInitStr);
     }
     if (!fs.existsSync(dxExampleScriptFileName)) {
         console.log("Creating Divblox example script...");
-        const dxExampleScriptStr = await fsAsync.readFile('templates/divblox-example.js');
+        const dxExampleScriptStr = await fsAsync.readFile('../templates/divblox-example.js');
         await fsAsync.writeFile(dxExampleScriptFileName, dxExampleScriptStr);
     }
     console.log("Done!");
