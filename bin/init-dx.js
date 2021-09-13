@@ -15,6 +15,7 @@ const dxInitFileName = divbloxConfigRoot+'dx-init.js';
  */
 async function createDefaults() {
     console.log("Initializing Divblox...");
+    return;
     if (!fs.existsSync(divbloxConfigRoot)){
         console.log("Creating Divblox config directory...");
         fs.mkdirSync(divbloxConfigRoot);
