@@ -54,19 +54,19 @@ async function createDefaults() {
 async function prepareApplication() {
     const appName = await dxUtils.getCommandLineInput("Application name:");
     // Generate application
-    isEmptyDirectory('.', function (empty) {
+    isEmptyDirectory('.', async function (empty) {
         if (empty) {
             createApplication(appName)
         } else {
-            confirm('destination is not empty, continue? [y/N] ', function (ok) {
-                if (ok) {
-                    process.stdin.destroy()
-                    createApplication(appName)
-                } else {
-                    console.error('aborting')
-                    exit(1)
-                }
-            })
+            const confirmed = await dxUtils.getCommandLineInput('The destination is not empty. If you' +
+                'continue divblox will clean the directory before starting. Continue? [y/N]');
+            if (confirmed.toLowerCase() === 'y') {
+                process.stdin.destroy();
+                createApplication(appName);
+            } else {
+                console.error('aborting');
+                process.exit(1);
+            }
         }
     })
 }
