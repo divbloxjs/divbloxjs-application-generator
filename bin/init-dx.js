@@ -25,6 +25,7 @@ function isEmptyDirectory (directory, fn) {
         fn(!files || !files.length)
     })
 }
+
 /**
  * Creates the minimum configuration files needed for Divblox to be initiated
  * @returns {Promise<void>}
@@ -76,6 +77,7 @@ async function prepareApplication() {
     }
 }
 async function createApplication(appName) {
+    console.log("Creating application '"+appName+"' ")
     createDefaults();
 }
 
