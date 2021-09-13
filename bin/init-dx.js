@@ -2,6 +2,7 @@
 
 const fs = require("fs");
 const fsAsync = require("fs").promises;
+const path = require('path')
 const divbloxRoot = "";
 const divbloxConfigRoot = divbloxRoot+"divblox-config/";
 const dataModelFileName = divbloxConfigRoot+'data-model.json';
