@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/divbloxjs/divbloxjs-application-generator/issues"
   },
-  "homepage": "https://github.com/divbloxjs/divbloxjs-application-generator#readme"
+  "homepage": "https://github.com/divbloxjs/divbloxjs-application-generator#readme",
+  "dependencies": {
+    "dx-utils": "github:divbloxjs/dx-utils"
+  }
 }
