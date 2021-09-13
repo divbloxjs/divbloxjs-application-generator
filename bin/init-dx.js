@@ -12,8 +12,15 @@ const dxExampleScriptFileName = divbloxRoot+'divblox-example.js';
 const dxInitFileName = divbloxConfigRoot+'dx-init.js';
 const TEMPLATE_DIR = path.join(__dirname, '..', 'templates')
 
-function isEmptyDirectory (dir, fn) {
-    fs.readdir(dir, function (err, files) {
+
+async function isEmptyDirectoryAsync (directory) {
+    return new Promise((accept, reject) => {
+        isEmptyDirectory(directory, accept);
+    });
+}
+
+function isEmptyDirectory (directory, fn) {
+    fs.readdir(directory, function (err, files) {
         if (err && err.code !== 'ENOENT') throw err
         fn(!files || !files.length)
     })
@@ -53,22 +60,20 @@ async function createDefaults() {
 
 async function prepareApplication() {
     const appName = await dxUtils.getCommandLineInput("Application name:");
-    // Generate application
-    isEmptyDirectory('.', async function (empty) {
-        if (empty) {
-            createApplication(appName)
+    const isDirectoryEmpty = await isEmptyDirectoryAsync('.');
+    if (isDirectoryEmpty) {
+        createApplication(appName)
+    } else {
+        const confirmed = await dxUtils.getCommandLineInput('The destination is not empty. If you ' +
+            'continue divblox will clean the directory before starting. Continue? [y/N]');
+        if (confirmed.toLowerCase() === 'y') {
+            process.stdin.destroy();
+            createApplication(appName);
         } else {
-            const confirmed = await dxUtils.getCommandLineInput('The destination is not empty. If you' +
-                'continue divblox will clean the directory before starting. Continue? [y/N]');
-            if (confirmed.toLowerCase() === 'y') {
-                process.stdin.destroy();
-                createApplication(appName);
-            } else {
-                console.error('aborting');
-                process.exit(1);
-            }
+            console.error('aborting');
+            process.exit(1);
         }
-    })
+    }
 }
 async function createApplication(appName) {
     createDefaults();
