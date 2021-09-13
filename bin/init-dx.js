@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+//TODO: We are currently asking the application name, but not using it for anything. Ensure that we setup a proper
+// npm package.
+
 const fs = require("fs");
 const fsAsync = require("fs").promises;
 const path = require('path')
