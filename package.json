@@ -5,7 +5,7 @@
   "main": "bin/init-dx.js",
   "preferGlobal": true,
   "bin": {
-    "divbloxjs": "./bin/init-dx.js"
+    "divbloxjs-app-generator": "./bin/init-dx.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
