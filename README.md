@@ -1,0 +1,1 @@
+# divbloxjs-application-generator
