@@ -68,7 +68,6 @@ async function createDefaults(appName) {
             fs.mkdirSync(foldersToCreate[folderDescription]);
         }
     }
-    const tokensToReplace = {"appName":appName};
     for (const fileDescription of Object.keys(filesToCreate)) {
         console.log("Creating "+fileDescription+"...");
         let fileContentStr = await fsAsync.readFile(filesToCreate[fileDescription].template);
@@ -77,7 +76,7 @@ async function createDefaults(appName) {
         for (const token of Object.keys(tokensToReplace)) {
             const search = '['+token+']';
             const replacer = new RegExp(search, 'g');
-            fileContentStr = fileContentStr.replace(replacer, tokensToReplace[token]);
+            console.log(fileContentStr.replace(replacer, tokensToReplace[token]));
         }
         await fsAsync.writeFile(filesToCreate[fileDescription].location, fileContentStr);
     }
