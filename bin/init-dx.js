@@ -29,7 +29,8 @@ const foldersToCreate = {
 };
 const filesToCreate = {
     "Package": {"location": divbloxRoot+"package.json",
-                    "template": TEMPLATE_DIR+'/configs/package.json'},
+                    "template": TEMPLATE_DIR+'/configs/package.json',
+                    "tokens":["appName"]},
     "Data model": {"location": divbloxRoot+"divblox-config/data-model.json",
                     "template": TEMPLATE_DIR+'/configs/data-model.json'},
     "Divblox Config": {"location": divbloxRoot+"divblox-config/dxconfig.json",
@@ -59,7 +60,7 @@ function isEmptyDirectory (directory, fn) {
  * Creates the minimum configuration files needed for Divblox to be initiated
  * @returns {Promise<void>}
  */
-async function createDefaults() {
+async function createDefaults(appName) {
     console.log("Initializing Divblox...");
     for (const folderDescription of Object.keys(foldersToCreate)) {
         if (!fs.existsSync(foldersToCreate[folderDescription])){
@@ -67,9 +68,15 @@ async function createDefaults() {
             fs.mkdirSync(foldersToCreate[folderDescription]);
         }
     }
+    const tokensToReplace = {"appName":appName};
     for (const fileDescription of Object.keys(filesToCreate)) {
         console.log("Creating "+fileDescription+"...");
-        const fileContentStr = await fsAsync.readFile(filesToCreate[fileDescription].template);
+        let fileContentStr = await fsAsync.readFile(filesToCreate[fileDescription].template);
+
+        for (const token of Object.keys(tokensToReplace)) {
+            const replacer = new RegExp('['+token+']', 'g');
+            fileContentStr = fileContentStr.replace(replacer, tokensToReplace[token]);
+        }
         await fsAsync.writeFile(filesToCreate[fileDescription].location, fileContentStr);
     }
     console.log("Done!");
@@ -95,7 +102,7 @@ async function prepareApplication() {
 async function createApplication(appName) {
     const normalizedAppName = dxUtils.getCamelCaseSplittedToLowerCase(dxUtils.convertLowerCaseToCamelCase(appName, ' '),'-');
     console.log("Creating application '"+normalizedAppName+"' ");
-    await createDefaults();
+    await createDefaults(appName);
 
     console.log("Installing divbloxjs...");
     const createResult = await dxUtils.executeCommand('npm install --save github:divbloxjs/divbloxjs');
