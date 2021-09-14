@@ -68,11 +68,9 @@ async function createDefaults() {
         }
     }
     for (const fileDescription of Object.keys(filesToCreate)) {
-        if (!fs.existsSync(filesToCreate[fileDescription].location)){
-            console.log("Creating "+fileDescription+"...");
-            const fileContentStr = await fsAsync.readFile(filesToCreate[fileDescription].template);
-            await fsAsync.writeFile(filesToCreate[fileDescription].location, fileContentStr);
-        }
+        console.log("Creating "+fileDescription+"...");
+        const fileContentStr = await fsAsync.readFile(filesToCreate[fileDescription].template);
+        await fsAsync.writeFile(filesToCreate[fileDescription].location, fileContentStr);
     }
     console.log("Done!");
 }
