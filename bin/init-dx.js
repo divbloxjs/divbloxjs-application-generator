@@ -9,11 +9,24 @@ const path = require('path')
 const dxUtils = require('dx-utils');
 const divbloxRoot = "";
 const divbloxConfigRoot = divbloxRoot+"divblox-config/";
+const divbloxBinRoot = divbloxRoot+"bin/";
+const divbloxRoutes = divbloxRoot+"divblox-routes/";
 const dataModelFileName = divbloxConfigRoot+'data-model.json';
 const dxConfigFileName = divbloxConfigRoot+'dxconfig.json';
-const dxExampleScriptFileName = divbloxRoot+'divblox-example.js';
+const dxExampleScriptFileName = divbloxRoot+'dx-app.js';
 const dxInitFileName = divbloxConfigRoot+'dx-init.js';
+const dxEntryPointFileName = divbloxBinRoot+'divblox-entry-point.js';
 const TEMPLATE_DIR = path.join(__dirname, '..', 'templates')
+const foldersToCreate = {
+    "Divblox config": divbloxRoot+"divblox-config/",
+    "Divblox bin": divbloxRoot+"bin/",
+    "Divblox routes": divbloxRoot+"divblox-routes/",
+    "Divblox views": divbloxRoot+"views/",
+    "Divblox public": divbloxRoot+"public/",
+    "Public images": divbloxRoot+"public/images",
+    "Public javascripts": divbloxRoot+"public/javascripts",
+    "Public stylesheets": divbloxRoot+"public/stylesheets",
+};
 
 
 async function isEmptyDirectoryAsync (directory) {
@@ -35,10 +48,13 @@ function isEmptyDirectory (directory, fn) {
  */
 async function createDefaults() {
     console.log("Initializing Divblox...");
-    if (!fs.existsSync(divbloxConfigRoot)){
-        console.log("Creating Divblox config directory...");
-        fs.mkdirSync(divbloxConfigRoot);
+    for (const folderDescription of Object.keys(foldersToCreate)) {
+        if (!fs.existsSync(foldersToCreate[folderDescription])){
+            console.log("Creating "+folderDescription+" directory...");
+            fs.mkdirSync(foldersToCreate[folderDescription]);
+        }
     }
+
     if (!fs.existsSync(dataModelFileName)) {
         console.log("Creating Divblox data model...");
         const dxDataModelDefaultStr = await fsAsync.readFile(TEMPLATE_DIR+'/data-model.json');
@@ -54,9 +70,14 @@ async function createDefaults() {
         const dxInitStr = await fsAsync.readFile(TEMPLATE_DIR+'/dx-init.js');
         await fsAsync.writeFile(dxInitFileName, dxInitStr);
     }
+    if (!fs.existsSync(dxEntryPointFileName)) {
+        console.log("Creating Divblox default entry point file...");
+        const dxEntryPointDefaultStr = await fsAsync.readFile(TEMPLATE_DIR+'/divblox-entry-point.js');
+        await fsAsync.writeFile(dxEntryPointFileName, dxEntryPointDefaultStr);
+    }
     if (!fs.existsSync(dxExampleScriptFileName)) {
-        console.log("Creating Divblox example script...");
-        const dxExampleScriptStr = await fsAsync.readFile(TEMPLATE_DIR+'/divblox-example.js');
+        console.log("Creating Divblox main app script...");
+        const dxExampleScriptStr = await fsAsync.readFile(TEMPLATE_DIR+'/dx-app.js');
         await fsAsync.writeFile(dxExampleScriptFileName, dxExampleScriptStr);
     }
     console.log("Done!");
@@ -80,7 +101,7 @@ async function prepareApplication() {
     }
 }
 async function createApplication(appName) {
-    const normalizedAppName = dxUtils.getCamelCaseSplittedToLowerCase(appName,'-');
+    const normalizedAppName = dxUtils.getCamelCaseSplittedToLowerCase(dxUtils.convertLowerCaseToCamelCase(appName, ' '),'-');
     console.log("Creating application '"+normalizedAppName+"' ");
     console.log("Installing divbloxjs...");
     const createResult = await dxUtils.executeCommand('npm install --save github:divbloxjs/divbloxjs');
