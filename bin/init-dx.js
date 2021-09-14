@@ -80,9 +80,20 @@ async function prepareApplication() {
     }
 }
 async function createApplication(appName) {
-    console.log("Creating application '"+appName+"' ");
+    const normalizedAppName = dxUtils.getCamelCaseSplittedToLowerCase(appName,'-');
+    console.log("Creating application '"+normalizedAppName+"' ");
+    console.log("Installing divbloxjs...");
     const createResult = await dxUtils.executeCommand('npm install --save github:divbloxjs/divbloxjs');
-    console.dir(createResult);
+    if ((typeof createResult === "undefined") || (createResult === null)) {
+        console.error("Could not install divbloxjs. Please restart the installer.");
+        return;
+    }
+    if (createResult.stdout.length > 0) {
+        console.log('divbloxjs install result: '+createResult.stdout);
+    } else {
+        console.log('divbloxjs install failed: '+createResult.stderr);
+        return;
+    }
     createDefaults();
 }
 
