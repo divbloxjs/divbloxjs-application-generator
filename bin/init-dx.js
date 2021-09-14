@@ -74,7 +74,7 @@ async function createDefaults(appName) {
         const tokensToReplace = {"appName": appName};
         const availableTokensToReplace = filesToCreate[fileDescription].tokens;
         if (typeof availableTokensToReplace !== "undefined") {
-            for (const token of Object.keys(availableTokensToReplace)) {
+            for (const token of availableTokensToReplace) {
                 if (Object.keys(tokensToReplace).includes(token)) {
                     const search = '['+token+']';
                     const replacer = new RegExp(search, 'g');
