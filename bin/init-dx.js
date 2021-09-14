@@ -70,7 +70,7 @@ async function createDefaults(appName) {
     }
     for (const fileDescription of Object.keys(filesToCreate)) {
         console.log("Creating "+fileDescription+"...");
-        let fileContentStr = await fsAsync.readFile(filesToCreate[fileDescription].template);
+        let fileContentStr = await fsAsync.readFile(filesToCreate[fileDescription].template).toString();
         const tokensToReplace = {"appName": appName};
         const availableTokensToReplace = filesToCreate[fileDescription].tokens;
         if (typeof availableTokensToReplace !== "undefined") {
@@ -79,7 +79,7 @@ async function createDefaults(appName) {
                     const search = '['+token+']';
                     const replacer = new RegExp(search, 'g');
                     console.log("Trying ty replace "+search+" in "+fileContentStr);
-                    fileContentStr = fileContentStr.toString().replace(replacer, tokensToReplace[token]);
+                    fileContentStr = fileContentStr.replace(replacer, tokensToReplace[token]);
                 }
 
             }
