@@ -81,6 +81,7 @@ async function prepareApplication() {
 }
 async function createApplication(appName) {
     console.log("Creating application '"+appName+"' ");
+    await dxUtils.executeCommand('npm init');
     const createResult = await dxUtils.executeCommand('npm install --save github:divbloxjs/divbloxjs');
     console.log(createResult);
     createDefaults();
