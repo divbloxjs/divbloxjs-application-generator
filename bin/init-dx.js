@@ -70,7 +70,8 @@ async function createDefaults(appName) {
     }
     for (const fileDescription of Object.keys(filesToCreate)) {
         console.log("Creating "+fileDescription+"...");
-        let fileContentStr = await fsAsync.readFile(filesToCreate[fileDescription].template).toString();
+        let fileContentStr = await fsAsync.readFile(filesToCreate[fileDescription].template);
+        fileContentStr = fileContentStr.toString();
         const tokensToReplace = {"appName": appName};
         const availableTokensToReplace = filesToCreate[fileDescription].tokens;
         if (typeof availableTokensToReplace !== "undefined") {
