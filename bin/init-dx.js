@@ -73,8 +73,10 @@ async function createDefaults(appName) {
         console.log("Creating "+fileDescription+"...");
         let fileContentStr = await fsAsync.readFile(filesToCreate[fileDescription].template);
 
+        const tokensToReplace = filesToCreate[fileDescription].tokens;
         for (const token of Object.keys(tokensToReplace)) {
-            const replacer = new RegExp('['+token+']', 'g');
+            const search = '['+token+']';
+            const replacer = new RegExp(search, 'g');
             fileContentStr = fileContentStr.replace(replacer, tokensToReplace[token]);
         }
         await fsAsync.writeFile(filesToCreate[fileDescription].location, fileContentStr);
