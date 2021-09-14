@@ -27,7 +27,20 @@ const foldersToCreate = {
     "Public javascripts": divbloxRoot+"public/javascripts",
     "Public stylesheets": divbloxRoot+"public/stylesheets",
 };
-
+const filesToCreate = {
+    "Package": {"location": divbloxRoot+"package.json",
+                    "template": TEMPLATE_DIR+'/configs/package.json'},
+    "Data model": {"location": divbloxRoot+"divblox-config/data-model.json",
+                    "template": TEMPLATE_DIR+'/configs/data-model.json'},
+    "Divblox Config": {"location": divbloxRoot+"divblox-config/dxconfig.json",
+                    "template": TEMPLATE_DIR+'/configs/dxconfig.json'},
+    "Divblox Init": {"location": divbloxRoot+"divblox-config/dx-init.js",
+                    "template": TEMPLATE_DIR+'/dx-init.js'},
+    "Divblox Entry Point": {"location": divbloxRoot+"bin/divblox-entry-point.js",
+                    "template": TEMPLATE_DIR+'/divblox-entry-point.js'},
+    "Divblox App": {"location": divbloxRoot+"dx-app.js",
+                    "template": TEMPLATE_DIR+'/dx-app.js'},
+}
 
 async function isEmptyDirectoryAsync (directory) {
     return new Promise((accept, reject) => {
@@ -54,31 +67,12 @@ async function createDefaults() {
             fs.mkdirSync(foldersToCreate[folderDescription]);
         }
     }
-
-    if (!fs.existsSync(dataModelFileName)) {
-        console.log("Creating Divblox data model...");
-        const dxDataModelDefaultStr = await fsAsync.readFile(TEMPLATE_DIR+'/data-model.json');
-        await fsAsync.writeFile(dataModelFileName, dxDataModelDefaultStr);
-    }
-    if (!fs.existsSync(dxConfigFileName)) {
-        console.log("Creating Divblox default config file...");
-        const dxConfigDefaultStr = await fsAsync.readFile(TEMPLATE_DIR+'/dxconfig.json');
-        await fsAsync.writeFile(dxConfigFileName, dxConfigDefaultStr);
-    }
-    if (!fs.existsSync(dxInitFileName)) {
-        console.log("Creating Divblox custom init file...");
-        const dxInitStr = await fsAsync.readFile(TEMPLATE_DIR+'/dx-init.js');
-        await fsAsync.writeFile(dxInitFileName, dxInitStr);
-    }
-    if (!fs.existsSync(dxEntryPointFileName)) {
-        console.log("Creating Divblox default entry point file...");
-        const dxEntryPointDefaultStr = await fsAsync.readFile(TEMPLATE_DIR+'/divblox-entry-point.js');
-        await fsAsync.writeFile(dxEntryPointFileName, dxEntryPointDefaultStr);
-    }
-    if (!fs.existsSync(dxExampleScriptFileName)) {
-        console.log("Creating Divblox main app script...");
-        const dxExampleScriptStr = await fsAsync.readFile(TEMPLATE_DIR+'/dx-app.js');
-        await fsAsync.writeFile(dxExampleScriptFileName, dxExampleScriptStr);
+    for (const fileDescription of Object.keys(filesToCreate)) {
+        if (!fs.existsSync(filesToCreate[fileDescription].location)){
+            console.log("Creating "+fileDescription+"...");
+            const fileContentStr = await fsAsync.readFile(filesToCreate[fileDescription].template);
+            await fsAsync.writeFile(filesToCreate[fileDescription].location, fileContentStr);
+        }
     }
     console.log("Done!");
 }
