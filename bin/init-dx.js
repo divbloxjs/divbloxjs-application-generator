@@ -78,6 +78,7 @@ async function createDefaults(appName) {
                 if (Object.keys(tokensToReplace).includes(token)) {
                     const search = '['+token+']';
                     const replacer = new RegExp(search, 'g');
+                    console.log("Trying ty replace "+search+" in "+fileContentStr);
                     fileContentStr = fileContentStr.toString().replace(replacer, tokensToReplace[token]);
                 }
 
