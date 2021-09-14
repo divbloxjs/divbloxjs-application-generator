@@ -95,6 +95,8 @@ async function prepareApplication() {
 async function createApplication(appName) {
     const normalizedAppName = dxUtils.getCamelCaseSplittedToLowerCase(dxUtils.convertLowerCaseToCamelCase(appName, ' '),'-');
     console.log("Creating application '"+normalizedAppName+"' ");
+    await createDefaults();
+
     console.log("Installing divbloxjs...");
     const createResult = await dxUtils.executeCommand('npm install --save github:divbloxjs/divbloxjs');
     if ((typeof createResult === "undefined") || (createResult === null)) {
@@ -105,9 +107,8 @@ async function createApplication(appName) {
         console.log('divbloxjs install result: '+createResult.stdout);
     } else {
         console.log('divbloxjs install failed: '+createResult.stderr);
-        return;
     }
-    createDefaults();
+
 }
 
 
