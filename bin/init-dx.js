@@ -78,11 +78,13 @@ async function createDefaults(appName) {
             for (const token of availableTokensToReplace) {
                 if (Object.keys(tokensToReplace).includes(token)) {
                     const search = '['+token+']';
-                    const replacer = new RegExp(search, 'g');
-                    console.log("Trying ty replace "+search+" in "+fileContentStr);
-                    fileContentStr = fileContentStr.replace(replacer, tokensToReplace[token]);
+                    let done = false;
+                    while (!done) {
+                        done = fileContentStr.indexOf(search) === -1;
+                        //TODO: This should be done with the replaceAll function
+                        fileContentStr = fileContentStr.replace(search, tokensToReplace[token]);
+                    }
                 }
-
             }
         }
 
