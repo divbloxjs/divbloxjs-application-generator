@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', function(req, res, next) {
+router.get('/', async (req, res, next) => {
     // res.send('Test route served');
     res.render('index', { title: 'Divblox API Root' });
 });

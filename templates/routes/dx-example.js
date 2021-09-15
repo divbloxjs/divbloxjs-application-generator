@@ -1,9 +1,17 @@
+const express = require('express');
+const router = express.Router();
+
+router.get('/', async (req, res, next) => {
+    // res.send('Test route served');
+    await doExampleContent();
+    res.render('index', { title: 'Divblox Example Root' });
+});
+
 /**
  * This function wraps some example functions to see how we can use Divblox in a specific script
- * @param {*} dx An instance of divbloxjs
  * @return {Promise<void>}
  */
-doExampleContent = async (dx) =>{
+doExampleContent = async () => {
     if ((typeof dx === "undefined") || (dx === null)) {
         throw new Error("Divblox instance was not provided");
     }
@@ -37,6 +45,6 @@ doExampleContent = async (dx) =>{
             console.log("Deleted!");
         }
     }
-
 }
-module.exports = doExampleContent;
+
+module.exports = router;
