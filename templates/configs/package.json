@@ -4,8 +4,7 @@
   "description": "",
   "main": "bin/divblox-entry-point.js",
   "scripts": {
-    "start-debug": "NODE_ENV=development node ./bin/divblox-entry-point.js",
-    "start-production": "NODE_ENV=production node ./bin/divblox-entry-point.js",
+    "start": "node ./bin/divblox-entry-point.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
