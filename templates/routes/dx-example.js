@@ -1,5 +1,6 @@
 /**
  * This function wraps some example functions to see how we can use Divblox in a specific script
+ * @param {*} dx An instance of divbloxjs
  * @return {Promise<void>}
  */
 doExampleContent = async (dx) =>{
