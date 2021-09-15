@@ -25,5 +25,12 @@
         }
       }
     }
+  },
+  "webServiceConfig": {
+    "webServerPort":3000,
+    "apiEndPointRoot":"./divblox-routes/api",
+    "wwwRoot":"./divblox-routes/index",
+    "staticRoot": "divblox-public",
+    "viewsRoot": "divblox-views"
   }
 }

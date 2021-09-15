@@ -21,11 +21,12 @@ const foldersToCreate = {
     "Divblox config": divbloxRoot+"divblox-config/",
     "Divblox bin": divbloxRoot+"bin/",
     "Divblox routes": divbloxRoot+"divblox-routes/",
-    "Divblox views": divbloxRoot+"views/",
-    "Divblox public": divbloxRoot+"public/",
-    "Public images": divbloxRoot+"public/images",
-    "Public javascripts": divbloxRoot+"public/javascripts",
-    "Public stylesheets": divbloxRoot+"public/stylesheets",
+    "Divblox routes www": divbloxRoot+"divblox-routes/www/",
+    "Divblox views": divbloxRoot+"divblox-views/",
+    "Divblox public": divbloxRoot+"divblox-public/",
+    "Public images": divbloxRoot+"divblox-public/images",
+    "Public javascripts": divbloxRoot+"divblox-public/javascripts",
+    "Public stylesheets": divbloxRoot+"divblox-public/stylesheets",
 };
 const filesToCreate = {
     "Package": {"location": divbloxRoot+"package.json",
@@ -41,8 +42,8 @@ const filesToCreate = {
                     "template": TEMPLATE_DIR+'/dx-app.js'},
     "Divblox api route": {"location": divbloxRoot+"divblox-routes/api.js",
         "template": TEMPLATE_DIR+'/routes/api.js'},
-    "Divblox index route": {"location": divbloxRoot+"divblox-routes/index.js",
-        "template": TEMPLATE_DIR+'/routes/index.js'},
+    "Divblox index route": {"location": divbloxRoot+"divblox-routes/www/index.js",
+        "template": TEMPLATE_DIR+'/routes/www/index.js'},
     "Divblox example route": {"location": divbloxRoot+"divblox-routes/dx-example.js",
         "template": TEMPLATE_DIR+'/routes/dx-example.js'},
 }
