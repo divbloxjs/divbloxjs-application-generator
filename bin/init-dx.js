@@ -46,6 +46,12 @@ const filesToCreate = {
         "template": TEMPLATE_DIR+'/routes/www/index.js'},
     "Divblox example route": {"location": divbloxRoot+"divblox-routes/dx-example.js",
         "template": TEMPLATE_DIR+'/routes/dx-example.js'},
+    "Divblox error view": {"location": divbloxRoot+"divblox-views/error.pug",
+        "template": TEMPLATE_DIR+'/views/error.pug'},
+    "Divblox index view": {"location": divbloxRoot+"divblox-views/index.pug",
+        "template": TEMPLATE_DIR+'/views/index.pug'},
+    "Divblox layout view": {"location": divbloxRoot+"divblox-views/layout.pug",
+        "template": TEMPLATE_DIR+'/views/layout.pug'},
 }
 
 async function isEmptyDirectoryAsync (directory) {
