@@ -35,8 +35,6 @@ const filesToCreate = {
                     "template": TEMPLATE_DIR+'/configs/data-model.json'},
     "Divblox Config": {"location": divbloxRoot+"divblox-config/dxconfig.json",
                     "template": TEMPLATE_DIR+'/configs/dxconfig.json'},
-    "Divblox Init": {"location": divbloxRoot+"divblox-config/dx-init.js",
-                    "template": TEMPLATE_DIR+'/dx-init.js'},
     "Divblox Entry Point": {"location": divbloxRoot+"bin/divblox-entry-point.js",
                     "template": TEMPLATE_DIR+'/divblox-entry-point.js'},
     "Divblox App": {"location": divbloxRoot+"dx-app.js",
