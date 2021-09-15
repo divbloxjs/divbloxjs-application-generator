@@ -27,8 +27,8 @@ class DivbloxDataLayer extends DivbloxDataLayerBase {
  * We don't need to create this class if we don't want to and we are happy with the standard Divblox data layer.
  */
 class DivbloxWebService extends DivbloxWebServiceBase {
-    constructor(dataModel = {}, apiConfig = {}, apiEndPointRoot = '/dx-api-root') {
-        super(dataModel, apiConfig, apiEndPointRoot);
+    constructor(config = {}) {
+        super(config);
         console.log("My own dx web service");
     }
 }

@@ -14,8 +14,8 @@
       },
       "webServiceConfig": {
         "webServerPort":3000,
-        "apiEndPointRoot":"./divblox-routes/api",
-        "wwwRoot":"./divblox-routes/www/index",
+        "apiEndPointRoot":"divblox-routes/api",
+        "wwwRoot":"divblox-routes/www/index",
         "staticRoot": "divblox-public",
         "viewsRoot": "divblox-views"
       }
@@ -33,8 +33,8 @@
       },
       "webServiceConfig": {
         "webServerPort":3000,
-        "apiEndPointRoot":"./divblox-routes/api",
-        "wwwRoot":"./divblox-routes/www/index",
+        "apiEndPointRoot":"divblox-routes/api",
+        "wwwRoot":"divblox-routes/www/index",
         "staticRoot": "divblox-public",
         "viewsRoot": "divblox-views"
       }
