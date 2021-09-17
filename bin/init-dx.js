@@ -1,21 +1,10 @@
 #!/usr/bin/env node
 
-//TODO: We are currently asking the application name, but not using it for anything. Ensure that we setup a proper
-// npm package.
-
 const fs = require("fs");
 const fsAsync = require("fs").promises;
 const path = require('path')
 const dxUtils = require('dx-utils');
 const divbloxRoot = "";
-const divbloxConfigRoot = divbloxRoot+"divblox-config/";
-const divbloxBinRoot = divbloxRoot+"bin/";
-const divbloxRoutes = divbloxRoot+"divblox-routes/";
-const dataModelFileName = divbloxConfigRoot+'data-model.json';
-const dxConfigFileName = divbloxConfigRoot+'dxconfig.json';
-const dxExampleScriptFileName = divbloxRoot+'dx-app.js';
-const dxInitFileName = divbloxConfigRoot+'dx-init.js';
-const dxEntryPointFileName = divbloxBinRoot+'divblox-entry-point.js';
 const TEMPLATE_DIR = path.join(__dirname, '..', 'templates')
 const foldersToCreate = {
     "Divblox config": divbloxRoot+"divblox-config/",
@@ -54,17 +43,39 @@ const filesToCreate = {
         "template": TEMPLATE_DIR+'/views/layout.pug'},
 }
 
+/**
+ * An async wrapper for the isEmptyDirectory function
+ * @param directory The path to the directory
+ * @return {Promise<boolean>} True if directory is empty
+ */
 async function isEmptyDirectoryAsync (directory) {
     return new Promise((accept, reject) => {
         isEmptyDirectory(directory, accept);
     });
 }
 
+/**
+ * Checks whether a directory is empty
+ * @param directory The path to the directory
+ * @param fn The callback function that is called with the result
+ */
 function isEmptyDirectory (directory, fn) {
     fs.readdir(directory, function (err, files) {
         if (err && err.code !== 'ENOENT') throw err
         fn(!files || !files.length)
     })
+}
+
+/**
+ * Normalizes an appName, fitting npm naming requirements.
+ * Copied from https://github.com/expressjs/generator/blob/master/bin/express-cli.js
+ * @param {String} appName
+ */
+function getNormalizeAppName(appName) {
+    return appName
+        .replace(/[^A-Za-z0-9.-]+/g, '-')
+        .replace(/^[-_.]+|-+$/g, '')
+        .toLowerCase()
 }
 
 /**
@@ -101,9 +112,14 @@ async function createDefaults(appName) {
 
         await fsAsync.writeFile(filesToCreate[fileDescription].location, fileContentStr);
     }
-    console.log("Done!");
+    console.log("Done! You can now start divblox with 'npm start'. To setup your environments, modify the file " +
+        "dxconfig.json located at divblox-config/dxconfig.json");
 }
 
+/**
+ * Handles the command line input that is used to prepare the npm package for the new project
+ * @return {Promise<void>}
+ */
 async function prepareApplication() {
     const appName = await dxUtils.getCommandLineInput("Application name:");
     const isDirectoryEmpty = await isEmptyDirectoryAsync('.');
@@ -121,8 +137,14 @@ async function prepareApplication() {
         }
     }
 }
+
+/**
+ * Creates a new node package with the given name and installs divbloxjs
+ * @param appName The appName provided via the command line
+ * @return {Promise<void>}
+ */
 async function createApplication(appName) {
-    const normalizedAppName = dxUtils.getCamelCaseSplittedToLowerCase(dxUtils.convertLowerCaseToCamelCase(appName, ' '),'-');
+    const normalizedAppName = getNormalizeAppName(appName);
     console.log("Creating application '"+normalizedAppName+"' ");
     await createDefaults(appName);
 
@@ -137,8 +159,7 @@ async function createApplication(appName) {
     } else {
         console.log('divbloxjs install failed: '+createResult.stderr);
     }
-
 }
 
-
+// Script entry point
 prepareApplication();
