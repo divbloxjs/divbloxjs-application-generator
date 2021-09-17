@@ -146,7 +146,7 @@ async function prepareApplication() {
 async function createApplication(appName) {
     const normalizedAppName = getNormalizeAppName(appName);
     console.log("Creating application '"+normalizedAppName+"' ");
-    await createDefaults(appName);
+    await createDefaults(normalizedAppName);
 
     console.log("Installing divbloxjs...");
     const createResult = await dxUtils.executeCommand('npm install --save github:divbloxjs/divbloxjs');
