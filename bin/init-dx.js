@@ -61,7 +61,9 @@ async function isEmptyDirectoryAsync (directory) {
  */
 function isEmptyDirectory (directory, fn) {
     fs.readdir(directory, function (err, files) {
+        console.log("Reading dir: "+directory);
         if (err && err.code !== 'ENOENT') throw err
+        console.log("Files: "+JSON.stringify(files));
         fn(!files || !files.length)
     })
 }
@@ -112,8 +114,7 @@ async function createDefaults(appName) {
 
         await fsAsync.writeFile(filesToCreate[fileDescription].location, fileContentStr);
     }
-    console.log("Done! You can now start divblox with 'npm start'. To setup your environments, modify the file " +
-        "dxconfig.json located at divblox-config/dxconfig.json");
+    console.log("Done!");
 }
 
 /**
@@ -156,6 +157,8 @@ async function createApplication(appName) {
     }
     if (createResult.stdout.length > 0) {
         console.log('divbloxjs install result: '+createResult.stdout);
+        console.log("You can now start divblox with 'npm start'. To setup your environments, modify the file " +
+            "dxconfig.json located at divblox-config/dxconfig.json");
     } else {
         console.log('divbloxjs install failed: '+createResult.stderr);
     }
