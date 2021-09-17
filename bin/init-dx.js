@@ -61,9 +61,7 @@ async function isEmptyDirectoryAsync (directory) {
  */
 function isEmptyDirectory (directory, fn) {
     fs.readdir(directory, function (err, files) {
-        console.log("Reading dir: "+directory);
         if (err && err.code !== 'ENOENT') throw err
-        console.log("Files: "+JSON.stringify(files));
         fn(!files || !files.length)
     })
 }
@@ -114,7 +112,7 @@ async function createDefaults(appName) {
 
         await fsAsync.writeFile(filesToCreate[fileDescription].location, fileContentStr);
     }
-    console.log("Done!");
+    console.log("Divblox initialization done!");
 }
 
 /**
@@ -127,8 +125,8 @@ async function prepareApplication() {
     if (isDirectoryEmpty) {
         createApplication(appName)
     } else {
-        const confirmed = await dxUtils.getCommandLineInput('The destination is not empty. If you ' +
-            'continue divblox will clean the directory before starting. Continue? [y/N]');
+        const confirmed = await dxUtils.getCommandLineInput('The destination is not empty. ' +
+            'Certain files might be overridden. Continue? [y/N]');
         if (confirmed.toLowerCase() === 'y') {
             process.stdin.destroy();
             createApplication(appName);
