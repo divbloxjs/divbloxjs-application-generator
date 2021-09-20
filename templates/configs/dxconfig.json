@@ -38,5 +38,10 @@
         "router": "divblox-routes/dx-example"
       }
     ]
+  },
+  "divbloxPackagesRootLocal": "divblox-packages-local",
+  "divbloxPackages": {
+    "local": [],
+    "npm": []
   }
 }
