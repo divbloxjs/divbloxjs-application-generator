@@ -2,6 +2,7 @@
   "environment": "development",
   "environmentArray": {
     "development": {
+      "webServerPort":3000,
       "modules": {
         "main": {
           "host": "localhost",
@@ -11,21 +12,10 @@
           "port": 3306,
           "ssl": false
         }
-      },
-      "webServiceConfig": {
-        "webServerPort":3000,
-        "apiEndPointRoot":"divblox-routes/api",
-        "wwwRoot":"divblox-routes/www/index",
-        "staticRoot": "divblox-public",
-        "viewsRoot": "divblox-views",
-        "additionalRoutes": [
-          {"location": "/example",
-            "router": "divblox-routes/dx-example"
-          }
-        ]
       }
     },
     "production": {
+      "webServerPort":3000,
       "modules": {
         "main": {
           "host": "localhost",
@@ -35,19 +25,18 @@
           "port": 3306,
           "ssl": false
         }
-      },
-      "webServiceConfig": {
-        "webServerPort":3000,
-        "apiEndPointRoot":"divblox-routes/api",
-        "wwwRoot":"divblox-routes/www/index",
-        "staticRoot": "divblox-public",
-        "viewsRoot": "divblox-views",
-        "additionalRoutes": [
-          {"location": "/example",
-            "router": "divblox-routes/dx-example"
-          }
-        ]
       }
     }
+  },
+  "webServiceConfig": {
+    "apiEndPointRoot":"divblox-routes/api",
+    "wwwRoot":"divblox-routes/www/index",
+    "staticRoot": "divblox-public",
+    "viewsRoot": "divblox-views",
+    "additionalRoutes": [
+      {"location": "/example",
+        "router": "divblox-routes/dx-example"
+      }
+    ]
   }
 }

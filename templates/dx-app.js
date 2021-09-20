@@ -38,7 +38,10 @@ class DivbloxWebService extends DivbloxWebServiceBase {
  * required. It is best practice to do this since the base classes can be updated via a package manager
  */
 class Divblox extends DivbloxBase {
-
+    async initDx() {
+        super.initDx();
+        // Any after-init code you want to execute here...
+    }
 }
 
 // Let's create an instance of Divblox. This requires a config path, a data model path and an optional datalayer
