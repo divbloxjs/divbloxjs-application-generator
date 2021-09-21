@@ -1,5 +1,5 @@
 /**
- * This dx-init script allows us to setup some custom Divblox configuration and initializations that we will be able to
+ * This dx-app script allows us to setup some custom Divblox configuration and initializations that we will be able to
  * use anywhere in our project. Rather than redefine these for every script where we want to use Divblox
  */
 
