@@ -11,25 +11,6 @@
       "apiKey": "varchar(50)"
     },
     "relationships": {
-
-    }
-  },
-  "account": {
-    "module": "main",
-    "attributes": {
-      "firstName": "varchar(50)",
-      "lastName": "varchar(50)",
-      "cell": "varchar(50) unique",
-      "idNumber": "varchar(25)"
-    },
-    "relationships": {
-      "userRole": [
-        "mainRole",
-        "secondRole"
-      ],
-      "passwordResetToken": [
-        "token"
-      ]
     }
   }
 }
