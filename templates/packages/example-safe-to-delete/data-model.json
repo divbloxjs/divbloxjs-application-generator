@@ -1,0 +1,28 @@
+{
+  "exampleEntity": {
+    "module": "main",
+    "attributes": {
+      "exampleDateTime": "datetime",
+      "exampleString": "varchar(50)",
+      "exampleNumber": "int",
+      "exampleText": "text"
+    },
+    "relationships": {
+      "secondExampleEntity": [
+        "firstRelationship",
+        "secondRelationship"
+      ]
+    }
+  },
+  "secondExampleEntity": {
+    "module": "main",
+    "attributes": {
+      "exampleDateTime": "datetime",
+      "exampleString": "varchar(50)",
+      "exampleNumber": "int",
+      "exampleText": "text"
+    },
+    "relationships": {
+    }
+  }
+}
