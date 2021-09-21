@@ -35,7 +35,7 @@
     "viewsRoot": "divblox-views",
     "additionalRoutes": [
       {"location": "/example",
-        "router": "divblox-routes/dx-example"
+        "router": "divblox-routes/www/additional-example"
       }
     ]
   },
