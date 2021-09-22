@@ -10,6 +10,18 @@ router.all('/', async (req, res, next) => {
 for (const packageName of Object.keys(dx.packages)) {
     const packageObj = dx.packages[packageName];
     const packageEndpoint = require('../'+packageObj.packageRoot+"/endpoint");
+
+    router.all('/'+packageName, async (req, res, next) => {
+        await packageEndpoint.executeOperation(null, {"headers":req.headers,"body":req.body,"query":req.query});
+        res.send(packageEndpoint.result);
+    });
+    router.all('/'+packageName+'/doc', async (req, res, next) => {
+        await packageEndpoint.executeOperation('doc', {"headers":req.headers,"body":req.body,"query":req.query});
+        console.dir(packageEndpoint.result);
+        //TODO: Implement this
+        res.render('index', { title: 'API Documentation - TO BE COMPLETED' });
+    });
+
     for (const operation of packageEndpoint.declaredOperations) {
         router.all('/'+packageName+'/'+operation, async (req, res, next) => {
             await packageEndpoint.executeOperation(operation, {"headers":req.headers,"body":req.body,"query":req.query});
