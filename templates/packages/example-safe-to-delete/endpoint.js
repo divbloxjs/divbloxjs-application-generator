@@ -1,5 +1,5 @@
 const dx = require('../../dx-app');
-const exampleCrudLogic = require('./index');
+const exampleSafeToDeleteController = require('./index');
 const divbloxEndpointBase = require('divbloxjs/dx-core-modules/endpoint-base');
 
 class ExampleSafeToDelete extends divbloxEndpointBase {
@@ -24,7 +24,7 @@ class ExampleSafeToDelete extends divbloxEndpointBase {
      * @return {Promise<void>}
      */
     async test() {
-        await exampleCrudLogic.doExampleCrud();
+        await exampleSafeToDeleteController.doExampleCrud();
         this.setResult(true, "You called the test operation");
     }
 }
