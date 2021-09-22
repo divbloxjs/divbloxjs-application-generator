@@ -4,7 +4,7 @@ const dx = require('../../dx-app');
  * This function wraps some example functions to see how we can use Divblox in a specific script
  * @return {Promise<void>}
  */
-doExampleContent = async () => {
+doExampleCrud = async () => {
     if ((typeof dx === "undefined") || (dx === null)) {
         throw new Error("Divblox instance was not provided");
     }
@@ -40,8 +40,6 @@ doExampleContent = async () => {
     }
 }
 
-doExampleContent();
-
 module.exports = {
-    doExampleContent
+    doExampleCrud
 };

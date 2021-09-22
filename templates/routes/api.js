@@ -12,8 +12,8 @@ for (const packageName of Object.keys(dx.packages)) {
     const packageEndpoint = require('../'+packageObj.packageRoot+"/endpoint");
     for (const operation of packageEndpoint.declaredOperations) {
         router.all('/'+packageName+'/'+operation, async (req, res, next) => {
-            const result = await packageEndpoint.executeOperation(operation, {"headers":req.headers,"body":req.body,"query":req.query});
-            res.send(result);
+            await packageEndpoint.executeOperation(operation, {"headers":req.headers,"body":req.body,"query":req.query});
+            res.send(packageEndpoint.result);
         });
     }
 }
