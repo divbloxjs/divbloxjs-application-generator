@@ -28,5 +28,5 @@ class ExampleSafeToDelete extends divbloxEndpointBase {
         this.setResult(true, "You called the test operation");
     }
 }
-const ExampleSafeToDeleteInstance = new ExampleSafeToDelete();
-module.exports = ExampleSafeToDeleteInstance;
+const exampleSafeToDeleteInstance = new ExampleSafeToDelete();
+module.exports = exampleSafeToDeleteInstance;

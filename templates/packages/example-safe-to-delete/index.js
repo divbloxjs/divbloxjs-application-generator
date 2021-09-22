@@ -45,6 +45,6 @@ class ExampleSafeToDelete extends divbloxPackageControllerBase {
         }
     }
 }
-const ExampleSafeToDeleteInstance = new ExampleSafeToDelete();
+const exampleSafeToDeleteInstance = new ExampleSafeToDelete();
 
-module.exports = ExampleSafeToDeleteInstance;
+module.exports = exampleSafeToDeleteInstance;
