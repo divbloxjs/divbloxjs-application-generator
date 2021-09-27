@@ -6,7 +6,9 @@ important information regarding your environments, their database connections, e
 The following is an example of a default `dxconfig.json` file that is created
 when you use the Divblox Application Generator.
 
+```
 [dxConfigExample]
+```
 
 ###Explanation
 
@@ -29,7 +31,10 @@ route is an object containing a `location` (The url path that will be reached) a
   router that will handle requests)
 - `webServiceConfig.useHttps`: If set to `true`, the property `serverHttps` must be populated since divblox will attempt 
 to start a https server rather than a http server for expressjs
-- `webServiceConfig.serverHttps`: The paths to the keyfile and certificate when running in https mode
+- `webServiceConfig.serverHttps`: The paths to the keyfile and certificate when running in https mode. You can easily 
+  generate these files with 
+  
+`openssl req -nodes -new -x509 -keyout server.key -out server.cert` 
 - `webServiceConfig.serverHttps.keyPath`: The path to the keyfile
 - `webServiceConfig.serverHttps.certPath`: The path to the certificate
 - `divbloxPackagesRootLocal`: Specifies the root path that will host all local divblox packages
