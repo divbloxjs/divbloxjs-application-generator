@@ -27,6 +27,9 @@ const filesToCreate = {
                     "template": TEMPLATE_DIR+'/configs/data-model.json'},
     "Divblox Config": {"location": divbloxRoot+"divblox-config/dxconfig.json",
                     "template": TEMPLATE_DIR+'/configs/dxconfig.json'},
+    "Divblox Config Readme": {"location": divbloxRoot+"divblox-config/dxconfig-readme.md",
+                    "template": TEMPLATE_DIR+'/configs/dxconfig-readme.md',
+                    "tokens":["dxConfigExample"]},
     "Divblox Entry Point": {"location": divbloxRoot+"bin/dx-entry-point.js",
                     "template": TEMPLATE_DIR+'/dx-entry-point.js'},
     "Divblox App": {"location": divbloxRoot+"dx-app.js",
@@ -103,8 +106,13 @@ async function createDefaults(appName) {
     for (const fileDescription of Object.keys(filesToCreate)) {
         console.log("Creating "+fileDescription+"...");
         let fileContentStr = await fsAsync.readFile(filesToCreate[fileDescription].template);
+        let dxConfigExampleStr = await fsAsync.readFile(TEMPLATE_DIR+'/configs/dxconfig.json');
         fileContentStr = fileContentStr.toString();
-        const tokensToReplace = {"appName": appName};
+        dxConfigExampleStr = dxConfigExampleStr.toString();
+        const tokensToReplace = {
+            "appName": appName,
+            "dxConfigExample": dxConfigExampleStr
+        };
         const availableTokensToReplace = filesToCreate[fileDescription].tokens;
         if (typeof availableTokensToReplace !== "undefined") {
             for (const token of availableTokensToReplace) {

@@ -37,7 +37,12 @@
       {"location": "/example",
         "router": "divblox-routes/www/additional-example"
       }
-    ]
+    ],
+    "useHttps": false,
+    "serverHttps": {
+      "keyPath": null,
+      "certPath": null
+    }
   },
   "divbloxPackagesRootLocal": "divblox-packages-local",
   "divbloxPackages": {

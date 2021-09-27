@@ -1,0 +1,38 @@
+## Divblox config
+
+The file `dxconfig.json` is used to setup your divblox instance. It contains
+important information regarding your environments, their database connections, etc.
+
+The following is an example of a default `dxconfig.json` file that is created
+when you use the Divblox Application Generator.
+
+[dxConfigExample]
+
+###Explanation
+
+- `environment`: Specifies which environment to load when you run `npm start`
+- `environmentArray`: Contains the configuration for each available environment.
+- `environmentArray.development`: Contains the configuration for the 'development' environment.
+- `environmentArray.development.webServerPort`: Specifies the port to use when starting the Divblox web server. This web 
+server wraps expressjs for its routing functionality.
+- `environmentArray.development.modules.main`: Contains the database configuration for the module called 'main'. The 'ssl' 
+property should be either `false` or the path to the ssl certificate that will be used to connect to the given database.
+  Your Divblox project can have multiple modules and `environmentArray.development.modules` is where each database 
+  configuration for a module is defined.
+- `webServiceConfig`: Contains the configuration for the Divblox web service
+- `webServiceConfig.apiEndPointRoot`: Specifies the root for the divblox api's
+- `webServiceConfig.wwwRoot`: Specifies the root for the divblox public landing page
+- `webServiceConfig.staticRoot`: Specifies the root for static assets such as images, stylesheets, etc
+- `webServiceConfig.viewsRoot`: Specifies the root for all expressjs views
+- `webServiceConfig.additionalRoutes`: An array that contains additional routes that Divblox should set up. Each additional
+route is an object containing a `location` (The url path that will be reached) and a `router` (The path to the expressjs 
+  router that will handle requests)
+- `webServiceConfig.useHttps`: If set to `true`, the property `serverHttps` must be populated since divblox will attempt 
+to start a https server rather than a http server for expressjs
+- `webServiceConfig.serverHttps`: The paths to the keyfile and certificate when running in https mode
+- `webServiceConfig.serverHttps.keyPath`: The path to the keyfile
+- `webServiceConfig.serverHttps.certPath`: The path to the certificate
+- `divbloxPackagesRootLocal`: Specifies the root path that will host all local divblox packages
+- `divbloxPackages`: Specifies all installed divblox packages. Packages can be either locally hosted or remotely.
+- `divbloxPackages.local`: An array containing the package names of every locally hosted divblox package
+- `divbloxPackages.npm`: An array containing the package names of every remotely hosted divblox package that has been installed
