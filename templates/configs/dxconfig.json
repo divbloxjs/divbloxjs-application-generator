@@ -3,6 +3,13 @@
   "environmentArray": {
     "development": {
       "webServerPort":3000,
+      "useHttps": false,
+      "serverHttps": {
+        "keyPath": null,
+        "certPath": null,
+        "allowHttp": true,
+        "httpsPort": 3001
+      },
       "modules": {
         "main": {
           "host": "localhost",
@@ -16,6 +23,13 @@
     },
     "production": {
       "webServerPort":3000,
+      "useHttps": false,
+      "serverHttps": {
+        "keyPath": null,
+        "certPath": null,
+        "allowHttp": true,
+        "httpsPort": 3001
+      },
       "modules": {
         "main": {
           "host": "localhost",
@@ -37,12 +51,7 @@
       {"location": "/example",
         "router": "divblox-routes/www/additional-example"
       }
-    ],
-    "useHttps": false,
-    "serverHttps": {
-      "keyPath": null,
-      "certPath": null
-    }
+    ]
   },
   "divbloxPackagesRootLocal": "divblox-packages-local",
   "divbloxPackages": {
