@@ -36,6 +36,17 @@ property should be either `false` or the path to the ssl certificate that will b
   configuration for a module is defined.
   
 
+- `environmentArray.development.dataModelState`: Used to maintain the state of the data model vs the database.
+  Divblox will use the information to alert the user when the underlying database needs to be synchronized with
+  the provided data model.
+  - `environmentArray.development.dataModelState.currentDataModelHash`: A hash of the complete current data model that 
+    can be used to detect changes 
+  - `environmentArray.development.dataModelState.lastDataModelChangeTimestamp`: A unix timestamp that refers to when the
+    data model was last changed. Divblox will update this when a change is detected.
+  - `environmentArray.development.dataModelState.lastDataModelSyncTimestamp`: A unix timestamp that refers to when the
+    database was last synchronized with the provided data model.
+  
+
 - `webServiceConfig`: Contains the configuration for the Divblox web service
 - `webServiceConfig.apiEndPointRoot`: Specifies the root for the divblox api's
 - `webServiceConfig.wwwRoot`: Specifies the root for the divblox public landing page

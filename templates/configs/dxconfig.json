@@ -19,6 +19,11 @@
           "port": 3306,
           "ssl": false
         }
+      },
+      "dataModelState": {
+        "currentDataModelHash": "",
+        "lastDataModelChangeTimestamp": 0,
+        "lastDataModelSyncTimestamp": 0
       }
     },
     "production": {
@@ -39,6 +44,11 @@
           "port": 3306,
           "ssl": false
         }
+      },
+      "dataModelState": {
+        "currentDataModelHash": "",
+        "lastDataModelChangeTimestamp": 0,
+        "lastDataModelSyncTimestamp": 0
       }
     }
   },

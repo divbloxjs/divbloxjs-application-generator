@@ -47,6 +47,7 @@
     },
     "indexes": [
       {
+        "attribute": "objectId",
         "indexName": "auditLogEntry_objectId",
         "indexChoice": "index",
         "type": "BTREE"
