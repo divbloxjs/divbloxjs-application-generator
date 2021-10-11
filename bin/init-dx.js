@@ -25,6 +25,8 @@ const filesToCreate = {
                     "tokens":["appName"]},
     "Data model": {"location": divbloxRoot+"divblox-config/data-model.json",
                     "template": TEMPLATE_DIR+'/configs/data-model.json'},
+    "Data model Readme": {"location": divbloxRoot+"divblox-config/data-model-readme.md",
+                    "template": TEMPLATE_DIR+'/configs/data-model-readme.md'},
     "Divblox Config": {"location": divbloxRoot+"divblox-config/dxconfig.json",
                     "template": TEMPLATE_DIR+'/configs/dxconfig.json'},
     "Divblox Config Readme": {"location": divbloxRoot+"divblox-config/dxconfig-readme.md",
