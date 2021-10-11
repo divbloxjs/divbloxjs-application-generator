@@ -5,6 +5,7 @@
   "main": "bin/dx-entry-point.js",
   "scripts": {
     "start": "node ./bin/dx-entry-point.js",
+    "start-silent": "node ./bin/dx-entry-point.js is-silent",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

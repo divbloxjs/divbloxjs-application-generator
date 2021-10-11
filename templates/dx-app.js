@@ -38,8 +38,8 @@ class DivbloxWebService extends DivbloxWebServiceBase {
  * required. It is best practice to do this since the base classes can be updated via a package manager
  */
 class Divblox extends DivbloxBase {
-    async startDx() {
-        super.startDx();
+    async startDx(mustSkipDatabaseSync = false) {
+        super.startDx(mustSkipDatabaseSync);
         // Any after-start code you want to execute here...
     }
 }
