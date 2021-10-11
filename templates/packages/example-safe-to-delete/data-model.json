@@ -56,7 +56,8 @@
     "relationships": {
     },
     "options": {
-      "enforceLockingConstraints": true
+      "enforceLockingConstraints": true,
+      "isAuditEnabled": true
     }
   },
   "exampleEntityTwo": {
@@ -108,7 +109,8 @@
       ]
     },
     "options": {
-      "enforceLockingConstraints": false
+      "enforceLockingConstraints": false,
+      "isAuditEnabled": true
     }
   }
 }
