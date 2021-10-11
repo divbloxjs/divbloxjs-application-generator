@@ -31,12 +31,6 @@
         "lengthOrValues": null,
         "default": null,
         "allowNull": true
-      },
-      "exampleOneGeometry": {
-        "type": "geometry",
-        "lengthOrValues": null,
-        "default": null,
-        "allowNull": false
       }
     },
     "indexes": [
@@ -50,12 +44,6 @@
         "attribute": "exampleOneStringWithoutNull",
         "indexName": "exampleEntityOne_exampleOneStringWithoutNull",
         "indexChoice": "unique",
-        "type": "BTREE"
-      },
-      {
-        "attribute": "exampleOneGeometry",
-        "indexName": "exampleEntityOne_exampleOneGeometry",
-        "indexChoice": "spatial",
         "type": "BTREE"
       },
       {
