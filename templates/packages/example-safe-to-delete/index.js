@@ -16,7 +16,7 @@ class ExampleSafeToDelete extends divbloxPackageControllerBase {
         // Let's create a new row for the object of type "exampleEntityOne" in the database with some parameters
         const objId = await dx.create("exampleEntityOne", {"exampleOneTimeStamp":"2021-01-01 12:00:00","exampleOneStringWithoutNull":"Example String","exampleOneBigInt":123,"exampleOneText":"Example text"});
         if (objId === -1) {
-            console.log("Failed to create new exampleEntityOne: "+JSON.stringify(dx.getError()));
+            console.log("Failed to create new exampleEntityOne: "+JSON.stringify(dx.getError(), null, 2));
         } else {
             // Divblox will always return the database table id for the newly created entry
             console.log("New exampleEntityOne created!");
@@ -26,19 +26,19 @@ class ExampleSafeToDelete extends divbloxPackageControllerBase {
             if (obj !== null) {
                 console.log("Found: "+JSON.stringify(obj, null, 2));
             } else {
-                console.log("Not found: "+JSON.stringify(dx.getError()));
+                console.log("Not found: "+JSON.stringify(dx.getError(), null, 2));
             }
 
             // Let's try and change something on this object using the "update" function
             if (!await dx.update("exampleEntityOne", {"id":objId, "exampleOneStringWithNull":"An updated string", "exampleOneBigInt":999})) {
-                console.log("Error updating: "+JSON.stringify(dx.getError()));
+                console.log("Error updating: "+JSON.stringify(dx.getError(), null, 2));
             } else {
                 console.log("Updated!");
             }
 
             //Let's try deleting an account using the "delete" function and specifying the exampleEntityOne's id
             if (!await dx.delete("exampleEntityOne", 2)) {
-                console.log("Error deleting: "+JSON.stringify(dx.getError()));
+                console.log("Error deleting: "+JSON.stringify(dx.getError(), null, 2));
             } else {
                 console.log("Deleted!");
             }
