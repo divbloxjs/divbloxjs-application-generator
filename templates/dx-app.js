@@ -16,7 +16,7 @@ const DivbloxWebServiceBase = require("divbloxjs/dx-core-modules/web-service");
 class DivbloxDataLayer extends DivbloxDataLayerBase {
     constructor(databaseConnector = null, dataModel = {}) {
         super(databaseConnector, dataModel);
-        console.log("My own data layer");
+        console.log("Custom data layer loaded");
     }
 }
 
@@ -29,7 +29,7 @@ class DivbloxDataLayer extends DivbloxDataLayerBase {
 class DivbloxWebService extends DivbloxWebServiceBase {
     constructor(config = {}) {
         super(config);
-        console.log("My own dx web service");
+        console.log("Custom web service loaded");
     }
 }
 
