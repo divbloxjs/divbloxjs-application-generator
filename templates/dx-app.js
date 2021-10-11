@@ -39,7 +39,7 @@ class DivbloxWebService extends DivbloxWebServiceBase {
  */
 class Divblox extends DivbloxBase {
     async startDx(mustSkipDatabaseSync = false) {
-        super.startDx(mustSkipDatabaseSync);
+        await super.startDx(mustSkipDatabaseSync);
         // Any after-start code you want to execute here...
     }
 }
