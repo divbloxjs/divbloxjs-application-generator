@@ -54,6 +54,8 @@ const filesToCreate = {
                     "template": TEMPLATE_DIR+'/views/index.pug'},
     "Divblox layout view": {"location": divbloxRoot+"divblox-views/layout.pug",
                     "template": TEMPLATE_DIR+'/views/layout.pug'},
+    "Divblox package register script": {"location": divbloxRoot+"bin/dx-register-package.js",
+                    "template": TEMPLATE_DIR+'/dx-register-package.js'},
 }
 
 /**
