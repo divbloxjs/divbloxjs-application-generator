@@ -8,7 +8,6 @@
     "divbloxjs-application-generator": "./bin/init-dx.js"
   },
   "scripts": {
-    "register-package": "node ./bin/register-package.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
