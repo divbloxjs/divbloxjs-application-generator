@@ -1,13 +1,13 @@
 ## Divblox Data models
-A Divblox data model describes the data structure of your project in a json file. It is important to note that
-the object is case-sensitive and that all keys and values must be provided in camelCase. 
-A clean Divblox project should always contain a "data-model.json" file that contains the base entity/entities for
-your project. However, each additional Divblox package can also include its own data model which Divblox will add
-to your project on startup.
-
-The structure of a data model object is described below.
+A Divblox data model describes the data structure of your project or package in a json file.
+It is important to note that the object is case-sensitive and that all keys and values must
+be provided in camelCase. A clean Divblox project will always contain a "data-model-base.json" file
+that contains the base entities for your project. However, each additional Divblox package
+can also include its own data model which Divblox will add to your project on startup.
 
 ### Structure
+The structure of a data model object is described below.
+
 #### Entities
 The data model json file must contain an object, with the highest-level keys/properties being the names of "Entities".
 Entities directly translate to database tables when the data model is synchronized with your database.
@@ -31,9 +31,9 @@ Entities directly translate to database tables when the data model is synchroniz
 Each entity must have a property called "module" that contains the name of the module in which this entity belongs.
 Modules are essentially individual databases that the Divblox Data Layer will connect to. It is important to
 know in which module an entity resides, in order to connect to the correct database when executing sql queries relating
-to the specific entity. 
+to the specific entity.
 
-***Modules are defined in the dxconfig.json file that is used to instantiate your Divblox instance and connect to the 
+***Modules are defined in the dxconfig.json file that is used to instantiate your Divblox instance and connect to the
 relevant database(s)***
 
 ```
@@ -57,7 +57,7 @@ relevant database(s)***
 #### Attributes
 Each entity must have a property called "attributes". The value of this field must be an object containing each separate
 attribute as a property. An attribute directly translates to a database table column when the data model is synchronized
-with your database. Therefore, the value of each attribute property must be an object containing its configuration for 
+with your database. Therefore, the value of each attribute property must be an object containing its configuration for
 the database table.
 
 ```
@@ -86,8 +86,8 @@ the database table.
 ```
 
 #### Indexes
-Each entity must have a property called "indexes". The value of this field must be an array of objects, each describing 
-an index to be added to the relevant database table. This array can optionally be left empty. 
+Each entity must have a property called "indexes". The value of this field must be an array of objects, each describing
+an index to be added to the relevant database table. This array can optionally be left empty.
 
 ```
 {
@@ -110,8 +110,8 @@ an index to be added to the relevant database table. This array can optionally b
 ```
 
 #### Relationships
-Each entity must have a property called "relationships". The value of this field must be an object containing each 
-separate relationship entity as a property. An entity can have multiple relationships with another entity. Therefore, 
+Each entity must have a property called "relationships". The value of this field must be an object containing each
+separate relationship entity as a property. An entity can have multiple relationships with another entity. Therefore,
 each relationship is defined as an array containing the unique relationship name for the entity. This translates directly
 to foreign key constraints and columns in the database.
 
@@ -137,9 +137,9 @@ to foreign key constraints and columns in the database.
 Each entity must have a property called "options". The value of this field must be an object containing additional options
 for the entity. The default options are:
 - "enforceLockingConstraints", which tells the Divblox database sync
-operation to add a column "lastUpdated" to the relevant database table. This column is used to apply and manage locking
-constraints when trying to update the relevant table.
-- "isAuditEnabled", which tells divbloxjs whether or not to audit interactions with this entity 
+  operation to add a column "lastUpdated" to the relevant database table. This column is used to apply and manage locking
+  constraints when trying to update the relevant table.
+- "isAuditEnabled", which tells divbloxjs whether or not to audit interactions with this entity
 
 Additional options can be added here if you want to implement your own functionality on your Divblox data model.
 
