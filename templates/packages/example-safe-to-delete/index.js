@@ -78,10 +78,12 @@ class ExampleSafeToDelete extends divbloxPackageControllerBase {
         }
 
         // We can also load an object from the database by its id
-        if (await exampleEntityOne.load(1)) {
-            console.log("Loaded object with id 1 from the database");
+        const id = exampleEntityOne.data.id;
+        if (await exampleEntityOne.load(id)) {
+            console.log("Loaded object with id "+id+" from the database");
+            console.dir(exampleEntityOne.data);
         } else {
-            console.log("Error loading object with id id from database");
+            console.log("Error loading object with id "+id+" from database");
             console.dir(exampleEntityOne.getError());
         }
     }
