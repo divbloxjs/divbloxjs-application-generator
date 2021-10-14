@@ -48,7 +48,6 @@ class Divblox extends DivbloxBase {
 // implementation class
 const dx = new Divblox(
     {"configPath":"./divblox-config/dxconfig.json",
-        "dataModelPath":"./divblox-config/data-model.json",
         "dataLayerImplementationClass":DivbloxDataLayer/*Can also be null if you want to use the default data layer*/,
         "webServiceImplementationClass":DivbloxWebService/*Can also be null if you want to use the default web service*/});
 
