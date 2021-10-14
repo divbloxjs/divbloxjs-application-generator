@@ -46,10 +46,17 @@ class ExampleSafeToDelete extends divbloxPackageControllerBase {
         }
     }
 
+    /**
+     * An example of how to use the default divbloxjs object models that are generated at startup
+     * @return {Promise<void>}
+     */
     doExampleCreate = async () => {
         const exampleEntityOne = new ExampleEntityOne(dx);
+
+        // If we just start adding data, we will be creating a new entry in the database
         exampleEntityOne.data.exampleOneBigInt = Math.round(100000*Math.random());
         exampleEntityOne.data.exampleOneStringWithoutNull = Date.now().toString() + Math.random().toString();
+
         const saveResult = await exampleEntityOne.save();
         if (!saveResult) {
             console.dir(exampleEntityOne.getError());
@@ -57,7 +64,10 @@ class ExampleSafeToDelete extends divbloxPackageControllerBase {
             console.log("Saved a new instance");
             console.dir(exampleEntityOne.data);
         }
+
+        // Once we've saved once, any changes when saving will result in an update in the database
         exampleEntityOne.data.exampleOneStringWithNull = "Test String Updated";
+
         const saveResult2 = await exampleEntityOne.save();
         if (!saveResult2) {
             console.log("Error saving...");
@@ -65,6 +75,14 @@ class ExampleSafeToDelete extends divbloxPackageControllerBase {
         } else {
             console.log("Saved an update");
             console.dir(exampleEntityOne.data);
+        }
+
+        // We can also load an object from the database by its id
+        if (await exampleEntityOne.load(1)) {
+            console.log("Loaded object with id 1 from the database");
+        } else {
+            console.log("Error loading object with id id from database");
+            console.dir(exampleEntityOne.getError());
         }
     }
 }
