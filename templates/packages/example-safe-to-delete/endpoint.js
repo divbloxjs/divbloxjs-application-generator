@@ -24,7 +24,7 @@ class ExampleSafeToDelete extends divbloxEndpointBase {
      * @return {Promise<void>}
      */
     async test() {
-        await exampleSafeToDeleteController.doExampleCrud();
+        await exampleSafeToDeleteController.doExampleCreate();
         this.setResult(true, "You called the test operation");
     }
 }

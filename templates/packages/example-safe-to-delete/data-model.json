@@ -16,8 +16,8 @@
       },
       "exampleOneStringWithoutNull": {
         "type": "varchar",
-        "lengthOrValues": 15,
-        "default": null,
+        "lengthOrValues": 150,
+        "default": "",
         "allowNull": false
       },
       "exampleOneBigInt": {
@@ -77,8 +77,8 @@
       },
       "exampleTwoStringWithoutNull": {
         "type": "varchar",
-        "lengthOrValues": 15,
-        "default": null,
+        "lengthOrValues": 150,
+        "default": "",
         "allowNull": false
       },
       "exampleTwoBigInt": {

@@ -1,5 +1,6 @@
 const dx = require('../../dx-app');
 const divbloxPackageControllerBase = require('divbloxjs/dx-core-modules/package-controller-base');
+const ExampleEntityOne = require('divbloxjs/dx-orm/generated/example-entity-one');
 
 class ExampleSafeToDelete extends divbloxPackageControllerBase {
     constructor() {
@@ -42,6 +43,28 @@ class ExampleSafeToDelete extends divbloxPackageControllerBase {
             } else {
                 console.log("Deleted!");
             }
+        }
+    }
+
+    doExampleCreate = async () => {
+        const exampleEntityOne = new ExampleEntityOne(dx);
+        exampleEntityOne.data.exampleOneBigInt = Math.round(100000*Math.random());
+        exampleEntityOne.data.exampleOneStringWithoutNull = Date.now().toString() + Math.random().toString();
+        const saveResult = await exampleEntityOne.save();
+        if (!saveResult) {
+            console.dir(exampleEntityOne.getError());
+        } else {
+            console.log("Saved a new instance");
+            console.dir(exampleEntityOne.data);
+        }
+        exampleEntityOne.data.exampleOneStringWithNull = "Test String Updated";
+        const saveResult2 = await exampleEntityOne.save();
+        if (!saveResult2) {
+            console.log("Error saving...");
+            console.dir(exampleEntityOne.getError());
+        } else {
+            console.log("Saved an update");
+            console.dir(exampleEntityOne.data);
         }
     }
 }
