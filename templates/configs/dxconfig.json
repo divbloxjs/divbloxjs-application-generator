@@ -20,6 +20,7 @@
           "ssl": false
         }
       },
+      "jwtSecret": "Change this secret immediately, since it is used by the divbloxjs jwt wrapper to sign and verify jwt tokens",
       "dataModelState": {
         "currentDataModelHash": "",
         "lastDataModelChangeTimestamp": 0,
@@ -45,6 +46,7 @@
           "ssl": false
         }
       },
+      "jwtSecret": "Change this secret immediately, since it is used by the divbloxjs jwt wrapper to sign and verify jwt tokens",
       "dataModelState": {
         "currentDataModelHash": "",
         "lastDataModelChangeTimestamp": 0,

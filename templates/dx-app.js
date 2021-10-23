@@ -6,6 +6,7 @@
 const DivbloxBase = require("divbloxjs/divblox");
 const DivbloxDataLayerBase = require("divbloxjs/dx-core-modules/data-layer");
 const DivbloxWebServiceBase = require("divbloxjs/dx-core-modules/web-service");
+const DivbloxJwtWrapperBase = require("divbloxjs/dx-core-modules/jwt-wrapper");
 
 /**
  * This is an implementation of the DivbloxDataLayerBase class. We can use this class to override the core data layer
@@ -21,15 +22,28 @@ class DivbloxDataLayer extends DivbloxDataLayerBase {
 }
 
 /**
- * This is an implementation of the DivbloxDataLayerBase class. We can use this class to override the core data layer
+ * This is an implementation of the DivbloxWebServiceBase class. We can use this class to override the web service
  * related functionality for Divblox. It is best practice to do this since the base classes can be updated via a
  * package manager.
- * We don't need to create this class if we don't want to and we are happy with the standard Divblox data layer.
+ * We don't need to create this class if we don't want to and we are happy with the standard Divblox web service base.
  */
 class DivbloxWebService extends DivbloxWebServiceBase {
     constructor(config = {}) {
         super(config);
         console.log("Custom web service loaded");
+    }
+}
+
+/**
+ * This is an implementation of the DivbloxJwtWrapperBase class. We can use this class to override the core jwt wrapper
+ * related functionality for Divblox. It is best practice to do this since the base classes can be updated via a
+ * package manager.
+ * We don't need to create this class if we don't want to and we are happy with the standard Divblox jwt wrapper.
+ */
+class DivbloxJwtWrapper extends DivbloxJwtWrapperBase {
+    constructor(jwtSecret = 'secret') {
+        super(jwtSecret);
+        console.log("Custom JWT wrapper loaded");
     }
 }
 
@@ -49,6 +63,7 @@ class Divblox extends DivbloxBase {
 const dx = new Divblox(
     {"configPath":"./divblox-config/dxconfig.json",
         "dataLayerImplementationClass":DivbloxDataLayer/*Can also be null if you want to use the default data layer*/,
-        "webServiceImplementationClass":DivbloxWebService/*Can also be null if you want to use the default web service*/});
+        "webServiceImplementationClass":DivbloxWebService/*Can also be null if you want to use the default web service*/,
+        "jwtWrapperImplementationClass":DivbloxJwtWrapper/*Can also be null if you want to use the default jwt wrapper*/});
 
 module.exports = dx;
