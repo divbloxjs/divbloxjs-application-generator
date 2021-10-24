@@ -12,7 +12,7 @@ when you use the Divblox Application Generator.
 
 ###Explanation
 
-- `appName`: The name of your app. This can be a string with spaces that is easy to read.
+- `appName`: The name of your app
 - `environment`: Specifies which environment to load when you run `npm start`
 - `environmentArray`: Contains the configuration for each available environment.
 - `environmentArray.development`: Contains the configuration for the 'development' environment.
