@@ -41,8 +41,8 @@ class DivbloxWebService extends DivbloxWebServiceBase {
  * We don't need to create this class if we don't want to and we are happy with the standard Divblox jwt wrapper.
  */
 class DivbloxJwtWrapper extends DivbloxJwtWrapperBase {
-    constructor(jwtSecret = 'secret') {
-        super(jwtSecret);
+    constructor(jwtSecret = 'secret', dxInstance = null) {
+        super(jwtSecret, dxInstance);
         console.log("Custom JWT wrapper loaded");
     }
 }

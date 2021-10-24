@@ -12,6 +12,7 @@ when you use the Divblox Application Generator.
 
 ###Explanation
 
+- `appName`: The name of your app. This can be a string with spaces that is easy to read.
 - `environment`: Specifies which environment to load when you run `npm start`
 - `environmentArray`: Contains the configuration for each available environment.
 - `environmentArray.development`: Contains the configuration for the 'development' environment.
@@ -34,6 +35,10 @@ server wraps expressjs for its routing functionality.
 property should be either `false` or the path to the ssl certificate that will be used to connect to the given database.
   Your Divblox project can have multiple modules and `environmentArray.development.modules` is where each database 
   configuration for a module is defined.
+  
+
+- `environmentArray.development.jwtSecret`: The secret that is used to sign and verify JWT tokens. Ensure that
+this is a string with sufficient length and randomness. Also, ensure that this secret is different for each environment.
   
 
 - `environmentArray.development.dataModelState`: Used to maintain the state of the data model vs the database.
