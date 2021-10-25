@@ -13,7 +13,7 @@ class ExampleSafeToDelete extends divbloxEndpointBase {
         this.declareOperations([testOperation]);
     }
 
-    async executeOperation(operation, request) {
+    async executeOperation(operation, request, dxInstance = null) {
         if (!await super.executeOperation(operation, request)) {
             return false;
         }
