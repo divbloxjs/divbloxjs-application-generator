@@ -22,7 +22,7 @@ for (const packageName of Object.keys(dx.packages)) {
         res.render('index', { title: 'API Documentation - TO BE COMPLETED' });
     });
 
-    for (const operation of packageEndpoint.declaredOperations) {
+    for (const operation of Object.keys(packageEndpoint.declaredOperations)) {
         router.all('/'+packageName+'/'+operation, async (req, res, next) => {
             await packageEndpoint.executeOperation(operation, {"headers":req.headers,"body":req.body,"query":req.query});
             res.send(packageEndpoint.result);
