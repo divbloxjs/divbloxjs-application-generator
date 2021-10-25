@@ -6,17 +6,25 @@ class ExampleSafeToDelete extends divbloxEndpointBase {
     constructor() {
         super();
         // We add a custom operation declaration here
-        this.addOperations(["test"]);
+        const testOperation = {
+            "operationName": "test",
+            "allowedAccess": ["anonymous"]
+        };
+        this.declareOperations([testOperation]);
     }
 
     async executeOperation(operation, request) {
-        await super.executeOperation(operation, request);
+        if (!await super.executeOperation(operation, request)) {
+            return false;
+        }
 
         // Here we have to deal with our custom operations
         switch(operation) {
             case 'test': await this.test();
                 break;
         }
+
+        return true;
     }
 
     /**
