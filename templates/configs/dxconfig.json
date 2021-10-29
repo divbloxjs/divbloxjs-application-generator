@@ -14,9 +14,9 @@
       "modules": {
         "main": {
           "host": "localhost",
-          "user": "dbuser",
-          "password": "123",
-          "database": "local_dx_db",
+          "user": "[database_user]",
+          "password": "[database_user_password]",
+          "database": "[database_name]",
           "port": 3306,
           "ssl": false
         }
@@ -40,9 +40,9 @@
       "modules": {
         "main": {
           "host": "localhost",
-          "user": "dbuser",
-          "password": "123",
-          "database": "local_dx_db",
+          "user": "[database_user]",
+          "password": "[database_user_password]",
+          "database": "[database_name]",
           "port": 3306,
           "ssl": false
         }
