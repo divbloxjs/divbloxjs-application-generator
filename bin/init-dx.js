@@ -99,15 +99,15 @@ function getNormalizeAppName(appName) {
  * @returns {Promise<void>}
  */
 async function createDefaults(appName) {
-    console.log("Initializing Divblox...");
+    dxUtils.printHeadingMessage("Initializing Divblox...");
     for (const folderDescription of Object.keys(foldersToCreate)) {
         if (!fs.existsSync(foldersToCreate[folderDescription])){
-            console.log("Creating "+folderDescription+" directory...");
+            dxUtils.printInfoMessage("Creating "+folderDescription+" directory...");
             fs.mkdirSync(foldersToCreate[folderDescription]);
         }
     }
     for (const fileDescription of Object.keys(filesToCreate)) {
-        console.log("Creating "+fileDescription+"...");
+        dxUtils.printInfoMessage("Creating "+fileDescription+"...");
         let fileContentStr = await fsAsync.readFile(filesToCreate[fileDescription].template);
         let dxConfigExampleStr = await fsAsync.readFile(TEMPLATE_DIR+'/configs/dxconfig.json');
         fileContentStr = fileContentStr.toString();
@@ -133,7 +133,7 @@ async function createDefaults(appName) {
 
         await fsAsync.writeFile(filesToCreate[fileDescription].location, fileContentStr);
     }
-    console.log("Divblox initialization done!");
+    dxUtils.printSuccessMessage("Divblox initialization done!");
 }
 
 /**
@@ -165,22 +165,22 @@ async function prepareApplication() {
  */
 async function createApplication(appName) {
     const normalizedAppName = getNormalizeAppName(appName);
-    console.log("Creating application '"+normalizedAppName+"' ");
+    dxUtils.printSubHeadingMessage("Creating application '"+normalizedAppName+"' ");
     await createDefaults(normalizedAppName);
 
-    console.log("Installing divbloxjs...");
+    dxUtils.printInfoMessage("Installing divbloxjs...");
     const createResult = await dxUtils.executeCommand('npm install --save github:divbloxjs/divbloxjs');
     if ((typeof createResult === "undefined") || (createResult === null)) {
         console.error("Could not install divbloxjs. Please restart the installer.");
         return;
     }
     if (createResult.stdout.length > 0) {
-        console.log('divbloxjs install result: '+createResult.stdout);
-        console.log("You can now start divblox with 'npm start' or call 'npm run start-silent' to ignore database checks " +
+        dxUtils.printSuccessMessage('divbloxjs install result: '+createResult.stdout);
+        dxUtils.printInfoMessage("You can now start divblox with 'npm start' or call 'npm run start-silent' to ignore database checks " +
             "(Useful when running with a process manager like pm2 to ensure uninterrupted restarts).\n" +
             "To setup your environments, modify the file dxconfig.json located at divblox-config/dxconfig.json");
     } else {
-        console.log('divbloxjs install failed: '+createResult.stderr);
+        dxUtils.printErrorMessage('divbloxjs install failed: '+createResult.stderr);
     }
 }
 
