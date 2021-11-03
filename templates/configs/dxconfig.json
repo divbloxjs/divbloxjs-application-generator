@@ -56,7 +56,6 @@
     }
   },
   "webServiceConfig": {
-    "apiEndPointRoot":"divblox-routes/api",
     "wwwRoot":"divblox-routes/www/index",
     "staticRoot": "divblox-public",
     "viewsRoot": "divblox-views",

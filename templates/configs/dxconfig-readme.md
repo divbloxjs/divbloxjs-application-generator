@@ -53,7 +53,6 @@ this is a string with sufficient length and randomness. Also, ensure that this s
   
 
 - `webServiceConfig`: Contains the configuration for the Divblox web service
-- `webServiceConfig.apiEndPointRoot`: Specifies the root for the divblox api's
 - `webServiceConfig.wwwRoot`: Specifies the root for the divblox public landing page
 - `webServiceConfig.staticRoot`: Specifies the root for static assets such as images, stylesheets, etc
 - `webServiceConfig.viewsRoot`: Specifies the root for all expressjs views
