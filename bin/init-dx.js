@@ -57,6 +57,8 @@ const filesToCreate = {
                     "template": TEMPLATE_DIR+'/views/layout.pug'},
     "Divblox package register script": {"location": divbloxRoot+"bin/dx-register-package.js",
                     "template": TEMPLATE_DIR+'/dx-register-package.js'},
+    "Divblox global identifier grouping management script": {"location": divbloxRoot+"bin/dx-manage-identifier-groupings.js",
+                    "template": TEMPLATE_DIR+'/dx-manage-identifier-groupings.js'},
 }
 
 /**
