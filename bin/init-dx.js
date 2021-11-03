@@ -43,8 +43,6 @@ const filesToCreate = {
                     "template": TEMPLATE_DIR+'/packages/example-safe-to-delete/index.js'},
     "Divblox example package end point": {"location": divbloxRoot+"divblox-packages-local/example-safe-to-delete/endpoint.js",
                     "template": TEMPLATE_DIR+'/packages/example-safe-to-delete/endpoint.js'},
-    "Divblox api route": {"location": divbloxRoot+"divblox-routes/api.js",
-                    "template": TEMPLATE_DIR+'/routes/api.js'},
     "Divblox index route": {"location": divbloxRoot+"divblox-routes/www/index.js",
                     "template": TEMPLATE_DIR+'/routes/www/index.js'},
     "Divblox additional example route": {"location": divbloxRoot+"divblox-routes/www/additional-example.js",

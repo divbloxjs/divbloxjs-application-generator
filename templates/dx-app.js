@@ -28,8 +28,8 @@ class DivbloxDataLayer extends DivbloxDataLayerBase {
  * We don't need to create this class if we don't want to and we are happy with the standard Divblox web service base.
  */
 class DivbloxWebService extends DivbloxWebServiceBase {
-    constructor(config = {}) {
-        super(config);
+    constructor(config = {}, dxInstance = null) {
+        super(config, dxInstance);
         console.log("Custom web service loaded");
     }
 }
