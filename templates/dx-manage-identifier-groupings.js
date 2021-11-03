@@ -19,7 +19,7 @@ function getOperation() {
     if (process.argv.includes("remove")) {
         return "remove";
     }
-
+    console.log("Provide an operation please show|create|modify|remove");
     return "show";
 }
 
