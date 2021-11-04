@@ -68,10 +68,7 @@
   "divbloxPackagesRootLocal": "divblox-packages-local",
   "divbloxPackages": {
     "local": [
-      {
-        "packageName": "example-safe-to-delete",
-        "endpointName": "example-endpoint"
-      }
+      "example-safe-to-delete"
     ],
     "npm": []
   }
