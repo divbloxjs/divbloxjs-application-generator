@@ -6,6 +6,8 @@ class ExampleSafeToDelete extends divbloxEndpointBase {
     constructor() {
         super();
         this.endpointName = "example-endpoint";
+        this.endpointDescription = "An example endpoint to demonstrate divblox api's";
+
         // We add a custom operation declaration here
         const testOperation = {
             "operationName": "test",
