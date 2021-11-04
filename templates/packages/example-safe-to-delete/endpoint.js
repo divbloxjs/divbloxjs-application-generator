@@ -5,6 +5,7 @@ const divbloxEndpointBase = require('divbloxjs/dx-core-modules/endpoint-base');
 class ExampleSafeToDelete extends divbloxEndpointBase {
     constructor() {
         super();
+        this.endpointName = "example-endpoint";
         // We add a custom operation declaration here
         const testOperation = {
             "operationName": "test",
