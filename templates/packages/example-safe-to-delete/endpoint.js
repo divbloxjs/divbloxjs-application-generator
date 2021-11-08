@@ -9,10 +9,12 @@ class ExampleSafeToDelete extends divbloxEndpointBase {
         this.endpointDescription = "An example endpoint to demonstrate divblox api's";
 
         // We add a custom operation declaration here
-        const testOperation = {
-            "operationName": "test",
-            "allowedAccess": ["anonymous"]
-        };
+        const testOperation = this.getOperationDefinition(
+            {
+                "operationName": "test",
+                "allowedAccess": ["anonymous"]
+            }
+        );
         this.declareOperations([testOperation]);
     }
 
