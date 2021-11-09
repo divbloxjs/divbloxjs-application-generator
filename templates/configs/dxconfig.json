@@ -70,6 +70,6 @@
     "local": [
       "example-safe-to-delete"
     ],
-    "npm": []
+    "remote": []
   }
 }

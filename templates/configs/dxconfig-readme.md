@@ -62,4 +62,4 @@ route is an object containing a `location` (The url path that will be reached) a
 - `divbloxPackagesRootLocal`: Specifies the root path that will host all local divblox packages
 - `divbloxPackages`: Specifies all installed divblox packages. Packages can be either locally hosted or remotely.
 - `divbloxPackages.local`: An array containing the package names of every locally hosted divblox package
-- `divbloxPackages.npm`: An array containing the package names of every remotely hosted divblox package that has been installed
+- `divbloxPackages.remote`: An array containing the package names of every remotely hosted divblox package that has been installed
