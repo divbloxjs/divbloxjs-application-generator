@@ -14,17 +14,25 @@ running the divblox-package generator script:
 `npx github:divbloxjs/divbloxjs-package-generator`
 
 ### Remote Divblox Packages
-Remote Divblox packages work in the same way as local ones, except that you install them via your package manager (npm).
+Remote Divblox packages work in the same way as local ones, except that you can install them via your package manager (npm).
 
-For ease of use, remote packages can be installed with the Divblox install-package script `npm run install-package`, which will attempt
-to install the package using npm and then register it within the divbloxjs available remote packages automatically. This
-is the recommended approach.
+For ease of use, remote packages can be installed with the Divblox register-package script `npm run register-package`, 
+which will attempt to install the package using npm and then register it within the divbloxjs available remote packages 
+automatically. This is the recommended approach.
 
 You can also manually install a Divblox package and then take care of the registration of the package. When you install 
 remote packages using npm (`npm install --save <package>`), ensure that you run `npm run register-package` to register the
 package in your local divbloxjs dxconfig.json file. If you don't run this script, your newly installed package
 will not be available in your divbloxjs project.
   
-*Note: If you did not use the Divblox Application generator to generate your app, the install-package and 
-register-package scripts will not be available and you will have to manually update dxconfig.json to make divbloxjs 
+*Note: If you did not use the Divblox Application generator to generate your app, the  register-package script will not 
+be available and you will have to manually update dxconfig.json to make divbloxjs 
 aware of your package*
+
+**An comprehensive example of how a Divblox package may potentially work can easily be installed from:** 
+
+`github:divbloxjs/dx-demo-package`
+
+Run: `npm run register-package`
+and provide `github:divbloxjs/dx-demo-package` as the remote path to install
+and register this demo package.
