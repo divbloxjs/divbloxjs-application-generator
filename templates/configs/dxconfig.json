@@ -67,9 +67,7 @@
   },
   "divbloxPackagesRootLocal": "divblox-packages-local",
   "divbloxPackages": {
-    "local": [
-      "example-safe-to-delete"
-    ],
+    "local": [],
     "remote": []
   }
 }
