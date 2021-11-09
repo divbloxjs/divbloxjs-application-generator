@@ -5,6 +5,8 @@ class ExampleSafeToDelete extends divbloxEndpointBase {
     constructor(dxInstance = null) {
         super(dxInstance);
 
+        this.controller = new exampleSafeToDeleteController(this.dxInstance);
+
         this.endpointName = "my-example";
         this.endpointDescription = "An example endpoint to demonstrate divblox api's";
 
@@ -12,7 +14,7 @@ class ExampleSafeToDelete extends divbloxEndpointBase {
         const testOperation = this.getOperationDefinition(
             {
                 "operationName": "test",
-                "allowedAccess": ["anonymous"],
+                "allowedAccess": ["user"],
                 "operationDescription": "This sentence describes the operation",
                 "parameters": [
                     this.getInputParameter({"name":"test","type":"header"}),
@@ -51,7 +53,7 @@ class ExampleSafeToDelete extends divbloxEndpointBase {
      * @return {Promise<void>}
      */
     async test() {
-        await exampleSafeToDeleteController.doExampleCreate();
+        await this.controller.doExampleCreate();
         this.setResult(true, "You called the test operation");
     }
 }
