@@ -2,8 +2,8 @@ const divbloxPackageControllerBase = require('divbloxjs/dx-core-modules/package-
 const ExampleEntityOne = require('divbloxjs/dx-orm/generated/example-entity-one');
 
 class ExampleSafeToDelete extends divbloxPackageControllerBase {
-    constructor() {
-        super();
+    constructor(dxInstance = null) {
+        super(dxInstance);
     }
 
     /**
