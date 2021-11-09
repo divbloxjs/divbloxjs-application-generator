@@ -1,4 +1,3 @@
-const dx = require('../../dx-app');
 const divbloxPackageControllerBase = require('divbloxjs/dx-core-modules/package-controller-base');
 const ExampleEntityOne = require('divbloxjs/dx-orm/generated/example-entity-one');
 
@@ -6,6 +5,7 @@ class ExampleSafeToDelete extends divbloxPackageControllerBase {
     constructor() {
         super();
     }
+
     /**
      * This function wraps some example functions to see how we can use Divblox in a specific script
      * @return {Promise<void>}
@@ -88,6 +88,5 @@ class ExampleSafeToDelete extends divbloxPackageControllerBase {
         }
     }
 }
-const exampleSafeToDeleteInstance = new ExampleSafeToDelete();
 
-module.exports = exampleSafeToDeleteInstance;
+module.exports = ExampleSafeToDelete;

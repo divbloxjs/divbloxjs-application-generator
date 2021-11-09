@@ -1,10 +1,10 @@
-const dx = require('../../dx-app');
 const exampleSafeToDeleteController = require('./index');
 const divbloxEndpointBase = require('divbloxjs/dx-core-modules/endpoint-base');
 
 class ExampleSafeToDelete extends divbloxEndpointBase {
-    constructor() {
-        super();
+    constructor(dxInstance = null) {
+        super(dxInstance);
+
         this.endpointName = "my-example";
         this.endpointDescription = "An example endpoint to demonstrate divblox api's";
 
@@ -32,8 +32,8 @@ class ExampleSafeToDelete extends divbloxEndpointBase {
         this.declareEntitySchemas(["globalIdentifier"]);
     }
 
-    async executeOperation(operation, request, dxInstance = null) {
-        if (!await super.executeOperation(operation, request, dxInstance)) {
+    async executeOperation(operation, request) {
+        if (!await super.executeOperation(operation, request)) {
             return false;
         }
 
@@ -55,5 +55,4 @@ class ExampleSafeToDelete extends divbloxEndpointBase {
         this.setResult(true, "You called the test operation");
     }
 }
-const exampleSafeToDeleteInstance = new ExampleSafeToDelete();
-module.exports = exampleSafeToDeleteInstance;
+module.exports = ExampleSafeToDelete;
