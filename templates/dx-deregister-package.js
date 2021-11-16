@@ -1,7 +1,7 @@
 const dx = require('../dx-app');
 
 async function run() {
-    await dx.deregisterRemotePackage();
+    await dx.deregisterPackage();
 
     process.exit(0);
 }
