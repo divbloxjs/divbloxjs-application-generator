@@ -167,7 +167,11 @@ async function createApplication(appName) {
     }
     if (createResult.stdout.length > 0) {
         dxUtils.printSuccessMessage('divbloxjs install result: '+createResult.stdout);
-        dxUtils.printInfoMessage("You can now start divblox with 'npm start' or call 'npm run start-silent' to ignore database checks " +
+        dxUtils.printInfoMessage("You can now start divblox with: ");
+        dxUtils.printTerminalMessage("npm start");
+        dxUtils.printInfoMessage("or: ");
+        dxUtils.printTerminalMessage("npm run start-silent");
+        dxUtils.printInfoMessage("to ignore database checks " +
             "(Useful when running with a process manager like pm2 to ensure uninterrupted restarts).\n" +
             "To setup your environments, modify the file dxconfig.json located at divblox-config/dxconfig.json");
     } else {
