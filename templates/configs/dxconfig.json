@@ -26,7 +26,8 @@
         "currentDataModelHash": "",
         "lastDataModelChangeTimestamp": 0,
         "lastDataModelSyncTimestamp": 0
-      }
+      },
+      "timeZone": "Africa/Abidjan"
     },
     "production": {
       "webServerPort":3000,
@@ -52,7 +53,8 @@
         "currentDataModelHash": "",
         "lastDataModelChangeTimestamp": 0,
         "lastDataModelSyncTimestamp": 0
-      }
+      },
+      "timeZone": "Africa/Abidjan"
     }
   },
   "webServiceConfig": {

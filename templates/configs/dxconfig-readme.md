@@ -50,6 +50,10 @@ this is a string with sufficient length and randomness. Also, ensure that this s
     data model was last changed. Divblox will update this when a change is detected.
   - `environmentArray.development.dataModelState.lastDataModelSyncTimestamp`: A unix timestamp that refers to when the
     database was last synchronized with the provided data model.
+    
+
+- `environmentArray.developent.timeZone`: The timezone for your server. A list of standardized timezones can be found
+on wikipedia here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   
 
 - `webServiceConfig`: Contains the configuration for the Divblox web service
