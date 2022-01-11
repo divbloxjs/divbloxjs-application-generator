@@ -4,6 +4,7 @@
   "environmentArray": {
     "development": {
       "webServerPort":3000,
+      "webServerCorsAllowedList": ["*"],
       "useHttps": false,
       "serverHttps": {
         "keyPath": null,
@@ -31,6 +32,7 @@
     },
     "production": {
       "webServerPort":3000,
+      "webServerCorsAllowedList": ["*"],
       "useHttps": false,
       "serverHttps": {
         "keyPath": null,
