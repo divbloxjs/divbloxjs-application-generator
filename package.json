@@ -1,33 +1,33 @@
 {
-  "name": "divbloxjs-application-generator",
-  "version": "1.0.0",
-  "description": "An application generator for divbloxjs that adds the relevant configuration files and api endpoints",
-  "main": "bin/init-dx.js",
-  "preferGlobal": true,
-  "bin": {
-    "divbloxjs-application-generator": "./bin/init-dx.js"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/divbloxjs/divbloxjs-application-generator.git"
-  },
-  "keywords": [
-    "divblox",
-    "divbloxjs",
-    "divbloxjs",
-    "application",
-    "generator"
-  ],
-  "author": "Johan Griesel, johan@divblox.com - Divblox (Pty) Ltd",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/divbloxjs/divbloxjs-application-generator/issues"
-  },
-  "homepage": "https://github.com/divbloxjs/divbloxjs-application-generator#readme",
-  "dependencies": {
-    "dx-utils": "github:divbloxjs/dx-utils"
-  }
+    "name": "divbloxjs-application-generator",
+    "version": "1.0.1",
+    "description": "An application generator for divbloxjs that adds the relevant configuration files and api endpoints",
+    "main": "bin/init-dx.js",
+    "preferGlobal": true,
+    "bin": {
+        "divbloxjs-application-generator": "./bin/init-dx.js"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/divbloxjs/divbloxjs-application-generator.git"
+    },
+    "keywords": [
+        "divblox",
+        "divbloxjs",
+        "divbloxjs",
+        "application",
+        "generator"
+    ],
+    "author": "Johan Griesel, johan@divblox.com - Divblox (Pty) Ltd",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/divbloxjs/divbloxjs-application-generator/issues"
+    },
+    "homepage": "https://github.com/divbloxjs/divbloxjs-application-generator#readme",
+    "dependencies": {
+        "dx-utilities": "^1.0.0"
+    }
 }
