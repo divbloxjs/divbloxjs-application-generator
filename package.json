@@ -1,18 +1,18 @@
 {
-    "name": "divbloxjs-application-generator",
-    "version": "1.0.2",
+    "name": "divbloxjs-create-app",
+    "version": "1.0.3",
     "description": "An application generator for divbloxjs that adds the relevant configuration files and api endpoints",
     "main": "bin/init-dx.js",
     "preferGlobal": true,
     "bin": {
-        "divbloxjs-application-generator": "./bin/init-dx.js"
+        "divbloxjs-create-app": "./bin/init-dx.js"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/divbloxjs/divbloxjs-application-generator.git"
+        "url": "git+https://github.com/divbloxjs/divbloxjs-create-app.git"
     },
     "keywords": [
         "divblox",
@@ -24,9 +24,9 @@
     "author": "Johan Griesel, johan@divblox.com - Divblox (Pty) Ltd",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/divbloxjs/divbloxjs-application-generator/issues"
+        "url": "https://github.com/divbloxjs/divbloxjs-create-app/issues"
     },
-    "homepage": "https://github.com/divbloxjs/divbloxjs-application-generator#readme",
+    "homepage": "https://github.com/divbloxjs/divbloxjs-create-app#readme",
     "dependencies": {
         "dx-utilities": "^1.0.0"
     }
