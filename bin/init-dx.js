@@ -188,7 +188,7 @@ async function createApplication(appName) {
     await createDefaults(normalizedAppName);
 
     dxUtils.printInfoMessage("Installing divbloxjs...");
-    const createResult = await dxUtils.executeCommand("npm install --save github:divbloxjs/divbloxjs");
+    const createResult = await dxUtils.executeCommand("npm install divbloxjs");
     if (typeof createResult === "undefined" || createResult === null) {
         console.error("Could not install divbloxjs. Please restart the installer.");
         return;
