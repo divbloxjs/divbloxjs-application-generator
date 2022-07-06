@@ -1,4 +1,6 @@
 # divbloxjs-application-generator
 
+Generates a new divbloxjs app with boilerplate.
+
 ## Usage
-`npx github:divbloxjs/divbloxjs-application-generator`
+`npx divbloxjs-application-generator`
