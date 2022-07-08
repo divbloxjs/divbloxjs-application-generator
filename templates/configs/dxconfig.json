@@ -1,77 +1,77 @@
 {
-  "appName": "[appName]",
-  "environment": "development",
-  "environmentArray": {
-    "development": {
-      "webServerPort":3000,
-      "webServerCorsAllowedList": ["*"],
-      "useHttps": false,
-      "serverHttps": {
-        "keyPath": null,
-        "certPath": null,
-        "allowHttp": true,
-        "httpsPort": 3001
-      },
-      "modules": {
-        "main": {
-          "host": "localhost",
-          "user": "[database_user]",
-          "password": "[database_user_password]",
-          "database": "[database_name]",
-          "port": 3306,
-          "ssl": false
+    "appName": "[appName]",
+    "environment": "development",
+    "environmentArray": {
+        "development": {
+            "webServerPort": 3000,
+            "webServerCorsAllowedList": ["*"],
+            "useHttps": false,
+            "serverBaseUrl": "http://localhost:3000",
+            "uploadServePath": "/uploads",
+            "serverHttps": {
+                "keyPath": null,
+                "certPath": null,
+                "allowHttp": true,
+                "httpsPort": 3001
+            },
+            "modules": {
+                "main": {
+                    "host": "localhost",
+                    "user": "[database_user]",
+                    "password": "[database_user_password]",
+                    "database": "[database_name]",
+                    "port": 3306,
+                    "ssl": false
+                }
+            },
+            "jwtSecret": "Change this secret immediately, since it is used by the divbloxjs jwt wrapper to sign and verify jwt tokens",
+            "dataModelState": {
+                "currentDataModelHash": "",
+                "lastDataModelChangeTimestamp": 0,
+                "lastDataModelSyncTimestamp": 0
+            },
+            "timeZone": "Africa/Abidjan"
+        },
+        "production": {
+            "webServerPort": 3000,
+            "webServerCorsAllowedList": ["*"],
+            "useHttps": false,
+            "serverBaseUrl": "http://localhost:3000",
+            "uploadServePath": "/uploads",
+            "serverHttps": {
+                "keyPath": null,
+                "certPath": null,
+                "allowHttp": true,
+                "httpsPort": 3001
+            },
+            "modules": {
+                "main": {
+                    "host": "localhost",
+                    "user": "[database_user]",
+                    "password": "[database_user_password]",
+                    "database": "[database_name]",
+                    "port": 3306,
+                    "ssl": false
+                }
+            },
+            "jwtSecret": "Change this secret immediately, since it is used by the divbloxjs jwt wrapper to sign and verify jwt tokens",
+            "dataModelState": {
+                "currentDataModelHash": "",
+                "lastDataModelChangeTimestamp": 0,
+                "lastDataModelSyncTimestamp": 0
+            },
+            "timeZone": "Africa/Abidjan"
         }
-      },
-      "jwtSecret": "Change this secret immediately, since it is used by the divbloxjs jwt wrapper to sign and verify jwt tokens",
-      "dataModelState": {
-        "currentDataModelHash": "",
-        "lastDataModelChangeTimestamp": 0,
-        "lastDataModelSyncTimestamp": 0
-      },
-      "timeZone": "Africa/Abidjan"
     },
-    "production": {
-      "webServerPort":3000,
-      "webServerCorsAllowedList": ["*"],
-      "useHttps": false,
-      "serverHttps": {
-        "keyPath": null,
-        "certPath": null,
-        "allowHttp": true,
-        "httpsPort": 3001
-      },
-      "modules": {
-        "main": {
-          "host": "localhost",
-          "user": "[database_user]",
-          "password": "[database_user_password]",
-          "database": "[database_name]",
-          "port": 3306,
-          "ssl": false
-        }
-      },
-      "jwtSecret": "Change this secret immediately, since it is used by the divbloxjs jwt wrapper to sign and verify jwt tokens",
-      "dataModelState": {
-        "currentDataModelHash": "",
-        "lastDataModelChangeTimestamp": 0,
-        "lastDataModelSyncTimestamp": 0
-      },
-      "timeZone": "Africa/Abidjan"
+    "webServiceConfig": {
+        "wwwRoot": "divblox-routes/www/index",
+        "staticRoot": "divblox-public",
+        "viewsRoot": "divblox-views",
+        "additionalRoutes": [{ "location": "/example", "router": "divblox-routes/www/additional-example" }]
+    },
+    "divbloxPackagesRootLocal": "divblox-packages-local",
+    "divbloxPackages": {
+        "local": [],
+        "remote": []
     }
-  },
-  "webServiceConfig": {
-    "wwwRoot":"divblox-routes/www/index",
-    "staticRoot": "divblox-public",
-    "viewsRoot": "divblox-views",
-    "additionalRoutes": [
-      {"location": "/example",
-        "router": "divblox-routes/www/additional-example"
-      }
-    ]
-  },
-  "divbloxPackagesRootLocal": "divblox-packages-local",
-  "divbloxPackages": {
-    "local": [],
-    "remote": []
-  }
 }
