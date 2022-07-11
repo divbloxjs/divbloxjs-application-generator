@@ -19,7 +19,10 @@ when you use the Divblox Application Generator.
 -   `environmentArray.development.webServerPort`: Specifies the port to use when starting the Divblox web server. This web
     server wraps expressjs for its routing functionality.
 -   `environmentArray.development.webServerCorsAllowedList`: Specifies the list of allowed origins for cors. If "\*"
-    is provided it means that any origin is allowed. If the array is empty it will only allow same origin.
+    is provided it means that any origin is allowed. If the array is empty it will only allow same origin. This is used as the
+    config for the expressjs cors package.
+-   `environmentArray.development.webServerCorsOptions`: Specifies the cors options that the web server should use. E.g {"credentials": true}
+    If it is an empty object, no additional cors options will be set. This is used as the config for cors options of the expressjs cors package.
 -   `environmentArray.development.useHttps`: If set to `true`, the property `serverHttps` must be populated since divblox
     will attempt to start a https server rather than a http server for expressjs
 -   `environmentArray.development.serverBaseUrl` The base url for our server. This is used when needing to access static resources

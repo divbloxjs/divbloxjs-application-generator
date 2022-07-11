@@ -5,6 +5,7 @@
         "development": {
             "webServerPort": 3000,
             "webServerCorsAllowedList": ["*"],
+            "webServerCorsOptions": {},
             "useHttps": false,
             "serverBaseUrl": "http://localhost:3000",
             "uploadServePath": "/uploads",
@@ -35,6 +36,7 @@
         "production": {
             "webServerPort": 3000,
             "webServerCorsAllowedList": ["*"],
+            "webServerCorsOptions": {},
             "useHttps": false,
             "serverBaseUrl": "http://localhost:3000",
             "uploadServePath": "/uploads",
