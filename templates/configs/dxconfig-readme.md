@@ -23,6 +23,22 @@ when you use the Divblox Application Generator.
     config for the expressjs cors package.
 -   `environmentArray.development.webServerCorsOptions`: Specifies the cors options that the web server should use. E.g {"credentials": true}
     If it is an empty object, no additional cors options will be set. This is used as the config for cors options of the expressjs cors package.
+    These options can be found on the expressjs website, but here is a breakdown:
+
+    **methods**: Configures the Access-Control-Allow-Methods CORS header. Expects a comma-delimited string (ex: ‘GET,PUT,POST’) or an array (ex: ['GET', 'PUT', 'POST']).
+
+    **allowedHeaders**: Configures the Access-Control-Allow-Headers CORS header. Expects a comma-delimited string (ex: ‘Content-Type,Authorization’) or an array (ex: ['Content-Type', 'Authorization']). If not specified, defaults to reflecting the headers specified in the request’s Access-Control-Request-Headers header.
+
+    **exposedHeaders**: Configures the Access-Control-Expose-Headers CORS header. Expects a comma-delimited string (ex: ‘Content-Range,X-Content-Range’) or an array (ex: ['Content-Range', 'X-Content-Range']). If not specified, no custom headers are exposed.
+
+    **credentials**: Configures the Access-Control-Allow-Credentials CORS header. Set to true to pass the header, otherwise it is omitted.
+
+    **maxAge**: Configures the Access-Control-Max-Age CORS header. Set to an integer to pass the header, otherwise it is omitted.
+
+    **preflightContinue**: Pass the CORS preflight response to the next handler.
+
+    **optionsSuccessStatus**: Provides a status code to use for successful OPTIONS requests, since some legacy browsers (IE11, various SmartTVs) choke on 204.
+
 -   `environmentArray.development.useHttps`: If set to `true`, the property `serverHttps` must be populated since divblox
     will attempt to start a https server rather than a http server for expressjs
 -   `environmentArray.development.serverBaseUrl` The base url for our server. This is used when needing to access static resources
