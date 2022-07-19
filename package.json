@@ -1,6 +1,6 @@
 {
     "name": "divbloxjs-create-app",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "An application generator for divbloxjs that adds the relevant configuration files and api endpoints",
     "main": "bin/init-dx.js",
     "preferGlobal": true,

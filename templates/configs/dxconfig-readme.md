@@ -14,6 +14,7 @@ when you use the Divblox Application Generator.
 
 -   `appName`: The name of your app
 -   `environment`: Specifies which environment to load when you run `npm start`
+-   `appVersion`: A version for your app that is displayed in your swagger ui documentation
 -   `environmentArray`: Contains the configuration for each available environment.
 -   `environmentArray.development`: Contains the configuration for the 'development' environment.
 -   `environmentArray.development.webServerPort`: Specifies the port to use when starting the Divblox web server. This web
