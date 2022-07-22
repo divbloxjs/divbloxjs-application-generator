@@ -40,8 +40,12 @@ const filesToCreate = {
     },
     "Divblox App": { location: divbloxRoot + "dx-app.js", template: TEMPLATE_DIR + "/dx-app.js" },
     "Divblox local packages readme": {
-        location: divbloxRoot + "divblox-packages-local/readme.md",
+        location: divbloxRoot + "divblox-packages-local/packages.md",
         template: TEMPLATE_DIR + "/infos/dx-packages-readme.md",
+    },
+    "Divblox data models readme": {
+        location: divbloxRoot + "divblox-packages-local/data-models.md",
+        template: TEMPLATE_DIR + "/infos/data-models-readme.md",
     },
     "Divblox index route": {
         location: divbloxRoot + "divblox-routes/www/index.js",

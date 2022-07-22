@@ -2,7 +2,8 @@
 
 Divblox packages can either be local packages or packages managed by npm. Each Divblox package must contain at least the following:
 
--   A `data-model.json` file that will contain the data model that describes the package's data structure
+-   A `data-model.json` file that will contain the data model that describes the package's data structure.
+    Read more about [divblox data models](data-models-readme.md)
 -   A file `index.js` That will contain the package's base class that facilitates its base logic
 -   A file `endpoint.js` That will contain any api operations supported by the package
 
@@ -23,7 +24,7 @@ which will attempt to install the package using npm and then register it within 
 automatically. This is the recommended approach.
 
 You can also manually install a Divblox package and then take care of the registration of the package. When you install
-remote packages using npm (`npm install --save <package>`), ensure that you run `npm run register-package` to register the
+remote packages using npm (`npm i <package>`), ensure that you run `npm run register-package` to register the
 package in your local divbloxjs dxconfig.json file. If you don't run this script, your newly installed package
 will not be available in your divbloxjs project.
 
