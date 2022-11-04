@@ -27,11 +27,6 @@
                 }
             },
             "jwtSecret": "Change this secret immediately, since it is used by the divbloxjs jwt wrapper to sign and verify jwt tokens",
-            "dataModelState": {
-                "currentDataModelHash": "",
-                "lastDataModelChangeTimestamp": 0,
-                "lastDataModelSyncTimestamp": 0
-            },
             "timeZone": "Africa/Abidjan"
         },
         "production": {
@@ -58,11 +53,6 @@
                 }
             },
             "jwtSecret": "Change this secret immediately, since it is used by the divbloxjs jwt wrapper to sign and verify jwt tokens",
-            "dataModelState": {
-                "currentDataModelHash": "",
-                "lastDataModelChangeTimestamp": 0,
-                "lastDataModelSyncTimestamp": 0
-            },
             "timeZone": "Africa/Abidjan"
         }
     },
@@ -72,9 +62,5 @@
         "viewsRoot": "divblox-views",
         "additionalRoutes": [{ "location": "/example", "router": "divblox-routes/www/additional-example" }]
     },
-    "divbloxPackagesRootLocal": "divblox-packages-local",
-    "divbloxPackages": {
-        "local": [],
-        "remote": []
-    }
+    "divbloxPackagesRootLocal": "divblox-packages-local"
 }

@@ -62,17 +62,6 @@ when you use the Divblox Application Generator.
 -   `environmentArray.development.jwtSecret`: The secret that is used to sign and verify JWT tokens. Ensure that
     this is a string with sufficient length and randomness. Also, ensure that this secret is different for each environment.
 
--   `environmentArray.development.dataModelState`: Used to maintain the state of the data model vs the database.
-    Divblox will use the information to alert the user when the underlying database needs to be synchronized with
-    the provided data model.
-
-    -   `environmentArray.development.dataModelState.currentDataModelHash`: A hash of the complete current data model that
-        can be used to detect changes
-    -   `environmentArray.development.dataModelState.lastDataModelChangeTimestamp`: A unix timestamp that refers to when the
-        data model was last changed. Divblox will update this when a change is detected.
-    -   `environmentArray.development.dataModelState.lastDataModelSyncTimestamp`: A unix timestamp that refers to when the
-        database was last synchronized with the provided data model.
-
 -   `environmentArray.developent.timeZone`: The timezone for your server. A list of standardized timezones can be found
     on wikipedia here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
@@ -84,6 +73,3 @@ when you use the Divblox Application Generator.
     route is an object containing a `location` (The url path that will be reached) and a `router` (The path to the expressjs
     router that will handle requests)
 -   `divbloxPackagesRootLocal`: Specifies the root path that will host all local divblox packages
--   `divbloxPackages`: Specifies all installed divblox packages. Packages can be either locally hosted or remotely.
--   `divbloxPackages.local`: An array containing the package names of every locally hosted divblox package
--   `divbloxPackages.remote`: An array containing the package names of every remotely hosted divblox package that has been installed

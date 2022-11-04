@@ -9,7 +9,7 @@ Divblox packages can either be local packages or packages managed by npm. Each D
 
 ### Local Divblox Packages
 
-When a local divbloxjs package is created, it must be added to the dxconfig.json file of your divblox project in order
+When a local divbloxjs package is created, it must be added to the dynamic-config.json file of your divblox project in order
 for divbloxjs to know about it. Rather than doing all of this manually, packages can easily by created by
 running the divblox-package generator script:
 
@@ -25,9 +25,9 @@ automatically. This is the recommended approach.
 
 You can also manually install a Divblox package and then take care of the registration of the package. When you install
 remote packages using npm (`npm i <package>`), ensure that you run `npm run register-package` to register the
-package in your local divbloxjs dxconfig.json file. If you don't run this script, your newly installed package
+package in your local divbloxjs dynamic-config.json file. If you don't run this script, your newly installed package
 will not be available in your divbloxjs project.
 
 _Note: If you did not use the Divblox Application generator to generate your app, the register-package script will not
-be available and you will have to manually update dxconfig.json to make divbloxjs
+be available and you will have to manually update dynamic-config.json to make divbloxjs
 aware of your package_
