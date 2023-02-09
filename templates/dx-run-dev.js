@@ -21,6 +21,7 @@ const checkIsDockerRunning = () => {
         }
         if (stdout.indexOf("divblox_[appName]_dev_database") !== -1) {
             console.log("Docker db service started!");
+            console.log("Starting divblox...");
 
             setTimeout(() => {
                 startDx();
