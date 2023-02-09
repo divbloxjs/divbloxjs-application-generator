@@ -6,7 +6,7 @@ console.log("Starting docker db service...");
 exec("docker compose up", (err, stdout, stderr) => {
     if (err) {
         console.error(err);
-        return;
+        exit(1);
     }
     console.log(stdout);
     exit(1);
@@ -16,10 +16,12 @@ const checkIsDockerRunning = () => {
     console.log("Waiting for docker db service...");
     exec("docker ps", (err, stdout, stderr) => {
         if (err) {
+            console.error(err);
             exit(1);
         }
         if (stdout.indexOf("divblox_[appName]_dev_database") !== -1) {
             console.log("Docker db service started!");
+
             setTimeout(() => {
                 startDx();
             }, 2000);
@@ -30,6 +32,7 @@ const checkIsDockerRunning = () => {
         }
     });
 };
+
 checkIsDockerRunning();
 
 const startDx = () => {
