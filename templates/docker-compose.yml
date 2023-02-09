@@ -11,8 +11,8 @@ services:
             MYSQL_PASSWORD: 'secret'
             MYSQL_DATABASE: '[appName]_db'
         volumes:
-            - dxsqldata:/var/lib/mysql
+            - [appName]sqldata:/var/lib/mysql
         ports:
             - 3307:3306 # We used port 3307 to minimize clashes with other instances of mysql servers
 volumes: 
-  dxsqldata: {}
+  [appName]sqldata: {}
