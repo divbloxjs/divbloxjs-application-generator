@@ -6,10 +6,8 @@ console.log("Starting docker db service...");
 exec("docker compose up", (err, stdout, stderr) => {
     if (err) {
         console.error(err);
-        exit(1);
     }
     console.log(stdout);
-    exit(1);
 });
 
 const checkIsDockerRunning = () => {
