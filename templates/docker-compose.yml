@@ -1,0 +1,18 @@
+# A docker image the creates a database for your local divblox instance. This database service matches the default config inside of a fresh divbloxjs project
+version: '1'
+services:
+    sql:
+        container_name: divblox_[appName]_dev_database
+        # image: biarms/mysql:5.7.33-beta-circleci # mysql image that works with apple m1 chips
+        image: mysql:5.7
+        environment:
+            MYSQL_ROOT_PASSWORD: 'secret'
+            MYSQL_USER: 'dx_user'
+            MYSQL_PASSWORD: 'secret'
+            MYSQL_DATABASE: '[appName]_db'
+        volumes:
+            - dxsqldata:/var/lib/mysql
+        ports:
+            - 3307:3306 # We used port 3307 to minimize clashes with other instances of mysql servers
+volumes: 
+  dxsqldata: {}
