@@ -6,6 +6,7 @@
     "scripts": {
         "start": "node ./bin/dx-entry-point.js",
         "start-silent": "node ./bin/dx-entry-point.js is-silent",
+        "dev": "node ./bin/dx-run-dev.js",
         "register-package": "node ./bin/dx-register-package.js",
         "deregister-package": "node ./bin/dx-deregister-package.js",
         "manage-groupings": "node ./bin/dx-manage-identifier-groupings.js",

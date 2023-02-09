@@ -38,7 +38,20 @@ const filesToCreate = {
         location: divbloxRoot + "bin/dx-entry-point.js",
         template: TEMPLATE_DIR + "/dx-entry-point.js",
     },
-    "Divblox App": { location: divbloxRoot + "dx-app.js", template: TEMPLATE_DIR + "/dx-app.js" },
+    "Divblox Dev Entry Point": {
+        location: divbloxRoot + "bin/dx-run-dev.js",
+        template: TEMPLATE_DIR + "/dx-run-dev.js",
+        tokens: ["appName"],
+    },
+    "Docker Compose File": {
+        location: divbloxRoot + "docker-compose.yml",
+        template: TEMPLATE_DIR + "/docker-compose.yml",
+        tokens: ["appName"],
+    },
+    "Divblox App": {
+        location: divbloxRoot + "dx-app.js",
+        template: TEMPLATE_DIR + "/dx-app.js",
+    },
     "Divblox local packages readme": {
         location: divbloxRoot + "divblox-packages-local/packages.md",
         template: TEMPLATE_DIR + "/infos/dx-packages-readme.md",
@@ -200,6 +213,11 @@ async function createApplication(appName) {
     if (createResult.stdout.length > 0) {
         dxUtils.printSuccessMessage("divbloxjs install result: " + createResult.stdout);
         dxUtils.printInfoMessage("You can now start divblox with: ");
+        dxUtils.printTerminalMessage("npm run dev");
+        dxUtils.printInfoMessage("Note: this requires docker to be installed");
+        dxUtils.printInfoMessage(
+            "Alternatively, if you have your own database service configured, start your instance with"
+        );
         dxUtils.printTerminalMessage("npm start");
         dxUtils.printInfoMessage("or: ");
         dxUtils.printTerminalMessage("npm run start-silent");

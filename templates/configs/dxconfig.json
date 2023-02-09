@@ -19,10 +19,10 @@
             "modules": {
                 "main": {
                     "host": "localhost",
-                    "user": "[database_user]",
-                    "password": "[database_user_password]",
-                    "database": "[database_name]",
-                    "port": 3306,
+                    "user": "dx_user",
+                    "password": "secret",
+                    "database": "[appName]_db",
+                    "port": 3307,
                     "ssl": false
                 }
             },
