@@ -36,13 +36,25 @@ const checkIsDockerRunning = () => {
 
 checkIsDockerRunning();
 
+let firstFail = true;
+
 const startDx = () => {
     const { fork } = require("child_process");
 
     const dxForked = fork("./bin/dx-entry-point.js");
 
     dxForked.on("exit", function (code, signal) {
-        console.log("child process exited with " + `code ${code} and signal ${signal}`);
+        if (firstFail) {
+            firstFail = false;
+            console.log("Docker db service might not be ready. Retrying...");
+
+            setTimeout(() => {
+                startDx();
+            }, 10000);
+        } else {
+            console.log("child process exited with " + `code ${code} and signal ${signal}`);
+            exit(1);
+        }
     });
 
     dxForked.on("data", (data) => {
