@@ -41,7 +41,7 @@ class DivbloxWebService extends DivbloxWebServiceBase {
  * We don't need to create this class if we don't want to and we are happy with the standard Divblox jwt wrapper.
  */
 class DivbloxJwtWrapper extends DivbloxJwtWrapperBase {
-    constructor(jwtSecret = 'secret', dxInstance = null) {
+    constructor(jwtSecret = "secret", dxInstance = null) {
         super(jwtSecret, dxInstance);
         console.log("Custom JWT wrapper loaded");
     }
@@ -52,18 +52,23 @@ class DivbloxJwtWrapper extends DivbloxJwtWrapperBase {
  * required. It is best practice to do this since the base classes can be updated via a package manager
  */
 class Divblox extends DivbloxBase {
-    async startDx(mustSkipDatabaseSync = false) {
-        await super.startDx(mustSkipDatabaseSync);
+    async startDx(mustSkipDatabaseSync = false, skipUserPrompts = false) {
+        const successfulStart = await super.startDx(mustSkipDatabaseSync, skipUserPrompts);
+        if (!successfulStart) {
+            this.printLastError();
+            return;
+        }
         // Any after-start code you want to execute here...
     }
 }
 
 // Let's create an instance of Divblox. This requires a config path, a data model path and an optional datalayer
 // implementation class
-const dx = new Divblox(
-    {"configPath":"./divblox-config/dxconfig.json",
-        "dataLayerImplementationClass":DivbloxDataLayer/*Can also be null if you want to use the default data layer*/,
-        "webServiceImplementationClass":DivbloxWebService/*Can also be null if you want to use the default web service*/,
-        "jwtWrapperImplementationClass":DivbloxJwtWrapper/*Can also be null if you want to use the default jwt wrapper*/});
+const dx = new Divblox({
+    configPath: "./divblox-config/dxconfig.json",
+    dataLayerImplementationClass: DivbloxDataLayer /*Can also be null if you want to use the default data layer*/,
+    webServiceImplementationClass: DivbloxWebService /*Can also be null if you want to use the default web service*/,
+    jwtWrapperImplementationClass: DivbloxJwtWrapper /*Can also be null if you want to use the default jwt wrapper*/,
+});
 
 module.exports = dx;
