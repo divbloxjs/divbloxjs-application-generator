@@ -48,6 +48,16 @@ const filesToCreate = {
         template: TEMPLATE_DIR + "/docker-compose.yml",
         tokens: ["appName"],
     },
+    "Docker Build File": {
+        location: divbloxRoot + "Dockerfile",
+        template: TEMPLATE_DIR + "/Dockerfile",
+        tokens: ["appName"],
+    },
+    "Docker Ignore File": {
+        location: divbloxRoot + ".dockerignore",
+        template: TEMPLATE_DIR + "/.dockerignore",
+        tokens: ["appName"],
+    },
     "Divblox App": {
         location: divbloxRoot + "dx-app.js",
         template: TEMPLATE_DIR + "/dx-app.js",
