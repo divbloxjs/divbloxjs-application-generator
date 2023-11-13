@@ -60,7 +60,13 @@
         "wwwRoot": "divblox-routes/www/index",
         "staticRoot": "divblox-public",
         "viewsRoot": "divblox-views",
-        "additionalRoutes": [{ "location": "/example", "router": "divblox-routes/www/additional-example" }]
+        "additionalRoutes": [
+            {
+                "location": "/example",
+                "router": "divblox-routes/www/additional-example"
+            }
+        ]
     },
-    "divbloxPackagesRootLocal": "divblox-packages-local"
+    "divbloxPackagesRootLocal": "divblox-packages-local",
+    "dxProjectApiKey": ""
 }
