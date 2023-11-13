@@ -10,6 +10,7 @@
         "register-package": "node ./bin/dx-register-package.js",
         "deregister-package": "node ./bin/dx-deregister-package.js",
         "manage-groupings": "node ./bin/dx-manage-identifier-groupings.js",
+        "push-project": "node ./bin/dx-push-project.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "",

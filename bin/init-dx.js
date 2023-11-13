@@ -102,6 +102,10 @@ const filesToCreate = {
         location: divbloxRoot + "bin/dx-manage-identifier-groupings.js",
         template: TEMPLATE_DIR + "/dx-manage-identifier-groupings.js",
     },
+    "Divblox project push script": {
+        location: divbloxRoot + "bin/dx-push-project.js",
+        template: TEMPLATE_DIR + "/dx-push-project.js",
+    },
 };
 
 /**
@@ -192,7 +196,7 @@ async function prepareApplication() {
         createApplication(appName);
     } else {
         const confirmed = await dxUtils.getCommandLineInput(
-            "The destination is not empty. " + "Certain files might be overridden. Continue? [y/N]"
+            "The destination is not empty. " + "Certain files might be overridden. Continue? [y/N]",
         );
         if (confirmed.toLowerCase() === "y") {
             process.stdin.destroy();
@@ -226,7 +230,7 @@ async function createApplication(appName) {
         dxUtils.printTerminalMessage("npm run dev");
         dxUtils.printInfoMessage("Note: this requires docker to be installed");
         dxUtils.printInfoMessage(
-            "Alternatively, if you have your own database service configured, start your instance with"
+            "Alternatively, if you have your own database service configured, start your instance with",
         );
         dxUtils.printTerminalMessage("npm start");
         dxUtils.printInfoMessage("or: ");
@@ -234,7 +238,7 @@ async function createApplication(appName) {
         dxUtils.printInfoMessage(
             "to ignore database checks " +
                 "(Useful when running with a process manager like pm2 to ensure uninterrupted restarts).\n" +
-                "To setup your environments, modify the file dxconfig.json located at divblox-config/dxconfig.json"
+                "To setup your environments, modify the file dxconfig.json located at divblox-config/dxconfig.json",
         );
     } else {
         dxUtils.printErrorMessage("divbloxjs install failed: " + createResult.stderr);
